@@ -1,12 +1,35 @@
 "use client";
 
 import * as React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react@0.487.0";
-import { DayPicker } from "react-day-picker@8.10.1";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { DayPicker } from "react-day-picker";
 
 import { cn } from "./utils";
 import { buttonVariants } from "./button";
 
+// Объявляем тип пропсов для наших компонентов иконок
+interface CustomComponentProps {
+  className: string;
+  [key: string]: any;
+}
+
+// Компонент для левой стрелки
+const LeftArrow: React.FC<CustomComponentProps> = ({
+  className,
+  ...props
+}) => (
+  <ChevronLeft className={cn("size-4", className)} {...props} />
+);
+
+// Компонент для правой стрелки
+const RightArrow: React.FC<CustomComponentProps> = ({
+  className,
+  ...props
+}) => (
+  <ChevronRight className={cn("size-4", className)} {...props} />
+);
+
+// Основной компонент календаря
 function Calendar({
   className,
   classNames,
@@ -60,12 +83,9 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        IconLeft: ({ className, ...props }) => (
-          <ChevronLeft className={cn("size-4", className)} {...props} />
-        ),
-        IconRight: ({ className, ...props }) => (
-          <ChevronRight className={cn("size-4", className)} {...props} />
-        ),
+        // Теперь используем созданные ранее компоненты стрелок
+        IconLeft: LeftArrow,
+        IconRight: RightArrow,
       }}
       {...props}
     />
