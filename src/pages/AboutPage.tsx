@@ -1,6 +1,6 @@
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
-import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 interface AboutPageProps {
   onNavigate: (page: string) => void;
@@ -12,13 +12,17 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
       <Header onNavigate={onNavigate} />
 
       {/* Page Header */}
-      <section className="py-16 border-b-2 border-gray-300">
+      <section className="py-12 bg-white border-b-2 border-gray-300">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="mb-8">
-            <div className="h-10 bg-gray-300 w-64 mx-auto mb-4 flex items-center justify-center">
+          <div className="h-10 bg-gray-300 w-64 mb-4 flex items-center">
+            О нашей компании
+          </div>
+          <div className="flex gap-2 items-center">
+            <div className="h-3 bg-gray-200 w-20">Главная</div>
+            <span className="text-gray-400">/</span>
+            <div className="h-3 bg-gray-200 w-48">
               О нашей компании
             </div>
-            <div className="h-4 bg-gray-200 w-128 mx-auto"></div>
           </div>
         </div>
       </section>
@@ -45,7 +49,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
 
             {/* Image placeholder */}
             <div className="border-2 border-gray-400 h-80 flex items-center justify-center overflow-hidden">
-              <ImageWithFallback 
+              <ImageWithFallback
                 src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjB0ZWFtfGVufDF8fHx8MTc2NDE5NjcxM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                 alt="Команда"
                 className="w-full h-full object-cover grayscale"
@@ -57,7 +61,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Image placeholder */}
             <div className="border-2 border-gray-400 h-80 flex items-center justify-center overflow-hidden lg:order-1 order-2">
-              <ImageWithFallback 
+              <ImageWithFallback
                 src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2V8ZW58MXx8fHwxNzY0MTgzNDM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                 alt="Офис"
                 className="w-full h-full object-cover grayscale"
@@ -83,7 +87,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
 
           {/* Third image - full width */}
           <div className="border-2 border-gray-400 h-96 flex items-center justify-center overflow-hidden">
-            <ImageWithFallback 
+            <ImageWithFallback
               src="https://images.unsplash.com/photo-1576073460124-e073bb8d87f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NjQyMTkyMjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
               alt="Рабочее пространство"
               className="w-full h-full object-cover grayscale"

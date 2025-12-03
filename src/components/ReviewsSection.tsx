@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export function ReviewsSection() {
-  const [, setCurrentReview] = useState(0);  // Закомментировал, так как не используется
+  const [, setCurrentReview] = useState(0);
   const reviews = [1, 2, 3];
 
   const nextReview = () => {
@@ -126,13 +126,13 @@ export function ReviewsSection() {
 
         {/* Navigation arrows */}
         <div className="flex justify-center gap-4 mt-8">
-          <button
+          <button 
             onClick={prevReview}
             className="w-12 h-12 border-2 border-gray-400 flex items-center justify-center"
           >
             <span className="text-gray-500">←</span>
           </button>
-          <button
+          <button 
             onClick={nextReview}
             className="w-12 h-12 border-2 border-gray-400 flex items-center justify-center"
           >

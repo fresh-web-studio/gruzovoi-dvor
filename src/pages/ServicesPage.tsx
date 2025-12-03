@@ -1,11 +1,13 @@
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 
 interface ServicesPageProps {
   onNavigate: (page: string) => void;
 }
 
-export function ServicesPage({ onNavigate }: ServicesPageProps) {
+export function ServicesPage({
+  onNavigate,
+}: ServicesPageProps) {
   const services = Array.from({ length: 30 }, (_, i) => i + 1);
 
   return (
@@ -13,13 +15,18 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       <Header onNavigate={onNavigate} />
 
       {/* Page Header */}
-      <section className="py-16 border-b-2 border-gray-300">
+
+      <section className="py-12 bg-white border-b-2 border-gray-300">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="mb-8">
-            <div className="h-10 bg-gray-300 w-96 mx-auto mb-4 flex items-center justify-center">
+          <div className="h-10 bg-gray-300 w-64 mb-4 flex items-center">
+            Все наши услуги
+          </div>
+          <div className="flex gap-2 items-center">
+            <div className="h-3 bg-gray-200 w-20">Главная</div>
+            <span className="text-gray-400">/</span>
+            <div className="h-3 bg-gray-200 w-48">
               Все наши услуги
             </div>
-            <div className="h-4 bg-gray-200 w-128 mx-auto"></div>
           </div>
         </div>
       </section>
