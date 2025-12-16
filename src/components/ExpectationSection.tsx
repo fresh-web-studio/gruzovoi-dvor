@@ -4,10 +4,10 @@ export function ExpectationSection() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Section title */}
         <div className="text-center mb-12">
-          <div className="h-8 bg-gray-300 w-96 mx-auto mb-4 flex items-center justify-center">
+          <div className="h-8 bg-gray-300 max-w-xs md:max-w-md mx-auto mb-4 flex items-center justify-center">
             Комфортное ожидание
           </div>
-          <div className="h-4 bg-gray-200 w-[500px] mx-auto"></div>
+          <div className="h-4 bg-gray-200 max-w-sm md:max-w-xl mx-auto"></div>
         </div>
 
         {/* Expectation items grid */}

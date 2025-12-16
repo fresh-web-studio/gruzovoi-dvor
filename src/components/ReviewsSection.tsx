@@ -17,10 +17,10 @@ export function ReviewsSection() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Section title */}
         <div className="text-center mb-12">
-          <div className="h-8 bg-gray-300 w-72 mx-auto mb-4 flex items-center justify-center">
+          <div className="h-8 bg-gray-300 max-w-xs md:max-w-sm mx-auto mb-4 flex items-center justify-center">
             Отзывы
           </div>
-          <div className="h-4 bg-gray-200 w-96 mx-auto"></div>
+          <div className="h-4 bg-gray-200 max-w-sm md:max-w-md mx-auto"></div>
         </div>
 
         {/* Desktop: Reviews grid */}
@@ -126,13 +126,13 @@ export function ReviewsSection() {
 
         {/* Navigation arrows */}
         <div className="flex justify-center gap-4 mt-8">
-          <button 
+          <button
             onClick={prevReview}
             className="w-12 h-12 border-2 border-gray-400 flex items-center justify-center"
           >
             <span className="text-gray-500">←</span>
           </button>
-          <button 
+          <button
             onClick={nextReview}
             className="w-12 h-12 border-2 border-gray-400 flex items-center justify-center"
           >

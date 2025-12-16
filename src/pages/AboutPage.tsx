@@ -14,13 +14,13 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
       {/* Page Header */}
       <section className="py-12 bg-white border-b-2 border-gray-300">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="h-10 bg-gray-300 w-64 mb-4 flex items-center">
+          <div className="h-10 bg-gray-300 max-w-xs md:max-w-sm mb-4 flex items-center">
             О нашей компании
           </div>
           <div className="flex gap-2 items-center">
             <div className="h-3 bg-gray-200 w-20">Главная</div>
             <span className="text-gray-400">/</span>
-            <div className="h-3 bg-gray-200 w-48">
+            <div className="h-3 bg-gray-200 max-w-[12rem]">
               О нашей компании
             </div>
           </div>
@@ -100,7 +100,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
       <section className="py-16 border-b-2 border-gray-300">
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-8">
-            <div className="h-8 bg-gray-300 w-80 mx-auto mb-4 flex items-center justify-center">
+            <div className="h-8 bg-gray-300 max-w-xs md:max-w-sm mx-auto mb-4 flex items-center justify-center">
               Реквизиты компании
             </div>
           </div>

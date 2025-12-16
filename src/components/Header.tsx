@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { Logo } from "./Logo";
 
 interface HeaderProps {
   onNavigate?: (page: string) => void;
@@ -8,138 +9,151 @@ export function Header({ onNavigate }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="border-b-2 border-gray-300 bg-white">
-      {/* Top info bar */}
-      <div className="border-b border-gray-300 bg-gray-50 hidden md:block">
+    <header className="border-b border-border bg-card">
+      {/* Верхняя инфо-панель (desktop) */}
+      <div className="border-b border-border bg-card hidden md:block">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="grid grid-cols-3 gap-4">
-            {/* Address */}
+            {/* Адрес */}
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 border border-gray-400"></div>
-              <span className="text-sm text-gray-600">Адрес: [адрес компании]</span>
+              <div className="w-4 h-4 border border-border rounded-sm" />
+              <span className="text-sm text-muted-foreground">
+                г. Нижний Тагил, ул. Трикотажников, д. 7
+              </span>
             </div>
-            
-            {/* Working hours */}
+
+            {/* Время работы */}
             <div className="flex items-center gap-2 justify-center">
-              <div className="w-4 h-4 border border-gray-400"></div>
-              <span className="text-sm text-gray-600">Время работы: [время]</span>
+              <div className="w-4 h-4 border border-border rounded-sm" />
+              <span className="text-sm text-muted-foreground">
+                Время работы: ежедневно, по предварительной записи
+              </span>
             </div>
-            
+
             {/* Email */}
             <div className="flex items-center gap-2 justify-end">
-              <div className="w-4 h-4 border border-gray-400"></div>
-              <span className="text-sm text-gray-600">Email: [email@example.com]</span>
+              <div className="w-4 h-4 border border-border rounded-sm" />
+              <span className="text-sm text-muted-foreground">
+                Email: vvs@transfer01.ru
+              </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main header */}
+      {/* Основной header */}
       <div className="max-w-7xl mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo placeholder */}
-          <div className="w-88 h-10 border-2 border-gray-400 flex items-center justify-center">
-            <span className="text-gray-500 text-xs">Логотип</span>
-          </div>
+        <div className="flex items-center justify-between gap-4">
+          {/* Логотип */}
+          <Logo className="h-6 md:h-10 w-auto flex-shrink-0" />
 
-          {/* Desktop Navigation */}
+          {/* Навигация (desktop) */}
           <nav className="hidden lg:flex gap-6">
-            <div 
-              className="px-4 py-2 border border-gray-400 cursor-pointer" 
-              onClick={() => onNavigate?.('home')}
+            <div
+              className="px-4 py-2 border border-border cursor-pointer"
+              onClick={() => onNavigate?.("home")}
             >
-              <span className="text-gray-700">Главная</span>
+              <span className="text-sm text-foreground">Главная</span>
             </div>
-            <div 
-              className="px-4 py-2 border border-gray-400 cursor-pointer" 
-              onClick={() => onNavigate?.('services')}
+            <div
+              className="px-4 py-2 border border-border cursor-pointer"
+              onClick={() => onNavigate?.("services")}
             >
-              <span className="text-gray-700">Услуги</span>
+              <span className="text-sm text-foreground">Услуги</span>
             </div>
-            <div 
-              className="px-4 py-2 border border-gray-400 cursor-pointer" 
-              onClick={() => onNavigate?.('about')}
+            <div
+              className="px-4 py-2 border border-border cursor-pointer"
+              onClick={() => onNavigate?.("about")}
             >
-              <span className="text-gray-700">О нас</span>
+              <span className="text-sm text-foreground">О нас</span>
             </div>
-            <div 
-              className="px-4 py-2 border border-gray-400 cursor-pointer" 
-              onClick={() => onNavigate?.('contacts')}
+            <div
+              className="px-4 py-2 border border-border cursor-pointer"
+              onClick={() => onNavigate?.("contacts")}
             >
-              <span className="text-gray-700">Контакты</span>
+              <span className="text-sm text-foreground">Контакты</span>
             </div>
           </nav>
 
-          {/* Contact info placeholder - hidden on mobile */}
-          <div className="border border-gray-400 px-4 py-2 hidden md:block">
-            <span className="text-gray-700 text-sm">Телефон: [номер]</span>
+          {/* Контакты (desktop) */}
+          <div className="px-4 py-2 hidden md:block">
+            <span className="text-sm text-foreground">
+              Сервис: +7&nbsp;950&nbsp;200‑65‑64
+            </span>
+            <span className="block text-sm text-foreground">
+              Запчасти: +7&nbsp;950&nbsp;200‑61‑72
+            </span>
           </div>
 
-          {/* Mobile menu button */}
-          <button 
-            className="lg:hidden p-2 border-2 border-gray-400 w-10 h-10 flex flex-col items-center justify-center gap-1"
+          {/* Кнопка мобильного меню (бургера) */}
+          <button
+            className="lg:hidden p-2 border-2 border-border w-10 h-10 flex flex-col items-center justify-center gap-1"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
           >
             {mobileMenuOpen ? (
-              // X icon
               <>
-                <div className="w-6 h-0.5 bg-gray-600 rotate-45 translate-y-1"></div>
-                <div className="w-6 h-0.5 bg-gray-600 -rotate-45 -translate-y-1"></div>
+                <div className="w-6 h-0.5 bg-foreground rotate-45 translate-y-1" />
+                <div className="w-6 h-0.5 bg-foreground -rotate-45 -translate-y-1" />
               </>
             ) : (
-              // Hamburger icon
               <>
-                <div className="w-6 h-0.5 bg-gray-600"></div>
-                <div className="w-6 h-0.5 bg-gray-600"></div>
-                <div className="w-6 h-0.5 bg-gray-600"></div>
+                <div className="w-6 h-0.5 bg-foreground" />
+                <div className="w-6 h-0.5 bg-foreground" />
+                <div className="w-6 h-0.5 bg-foreground" />
               </>
             )}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Мобильная навигация */}
         {mobileMenuOpen && (
-          <nav className="lg:hidden mt-4 border-t-2 border-gray-300 pt-4 space-y-3">
-            <div 
-              className="px-4 py-3 border border-gray-400 cursor-pointer" 
+          <nav className="lg:hidden mt-4 border-t border-border pt-4 space-y-3">
+            <div
+              className="px-4 py-3 border border-border cursor-pointer"
               onClick={() => {
-                onNavigate?.('home');
+                onNavigate?.("home");
                 setMobileMenuOpen(false);
               }}
             >
-              <span className="text-gray-700">Главная</span>
+              <span className="text-sm text-foreground">Главная</span>
             </div>
-            <div 
-              className="px-4 py-3 border border-gray-400 cursor-pointer" 
+            <div
+              className="px-4 py-3 border border-border cursor-pointer"
               onClick={() => {
-                onNavigate?.('services');
+                onNavigate?.("services");
                 setMobileMenuOpen(false);
               }}
             >
-              <span className="text-gray-700">Услуги</span>
+              <span className="text-sm text-foreground">Услуги</span>
             </div>
-            <div 
-              className="px-4 py-3 border border-gray-400 cursor-pointer" 
+            <div
+              className="px-4 py-3 border border-border cursor-pointer"
               onClick={() => {
-                onNavigate?.('about');
+                onNavigate?.("about");
                 setMobileMenuOpen(false);
               }}
             >
-              <span className="text-gray-700">О нас</span>
+              <span className="text-sm text-foreground">О нас</span>
             </div>
-            <div 
-              className="px-4 py-3 border border-gray-400 cursor-pointer" 
+            <div
+              className="px-4 py-3 border border-border cursor-pointer"
               onClick={() => {
-                onNavigate?.('contacts');
+                onNavigate?.("contacts");
                 setMobileMenuOpen(false);
               }}
             >
-              <span className="text-gray-700">Контакты</span>
+              <span className="text-sm text-foreground">Контакты</span>
             </div>
-            
-            {/* Mobile contact info */}
-            <div className="border border-gray-400 px-4 py-3">
-              <span className="text-gray-700 text-sm">Телефон: [номер]</span>
+
+            {/* Контакты (mobile) */}
+            <div className="border border-border px-4 py-3">
+              <span className="text-sm text-foreground">
+                Сервис: +7&nbsp;950&nbsp;200‑65‑64
+              </span>
+              <span className="block text-xs text-muted-foreground">
+                Запчасти и WhatsApp: +7&nbsp;950&nbsp;200‑61‑72
+              </span>
             </div>
           </nav>
         )}

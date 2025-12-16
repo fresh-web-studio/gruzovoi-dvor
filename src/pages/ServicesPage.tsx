@@ -18,13 +18,13 @@ export function ServicesPage({
 
       <section className="py-12 bg-white border-b-2 border-gray-300">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="h-10 bg-gray-300 w-64 mb-4 flex items-center">
+          <div className="h-10 bg-gray-300 max-w-xs md:max-w-sm mb-4 flex items-center">
             Все наши услуги
           </div>
           <div className="flex gap-2 items-center">
             <div className="h-3 bg-gray-200 w-20">Главная</div>
             <span className="text-gray-400">/</span>
-            <div className="h-3 bg-gray-200 w-48">
+            <div className="h-3 bg-gray-200 max-w-[12rem]">
               Все наши услуги
             </div>
           </div>

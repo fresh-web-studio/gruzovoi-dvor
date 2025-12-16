@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export function WorkSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const steps = [
     { id: 1, number: '1' },
     { id: 2, number: '2' },
@@ -23,8 +23,8 @@ export function WorkSection() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Section title */}
         <div className="text-center mb-12">
-          <div className="h-8 bg-gray-300 w-80 mx-auto mb-4 flex items-center justify-center">Наши работы</div>
-          <div className="h-4 bg-gray-200 w-[420px] mx-auto"></div>
+          <div className="h-8 bg-gray-300 max-w-xs md:max-w-sm mx-auto mb-4 flex items-center justify-center">Наши работы</div>
+          <div className="h-4 bg-gray-200 max-w-sm md:max-w-md mx-auto"></div>
         </div>
 
         {/* Desktop grid */}
@@ -102,9 +102,8 @@ export function WorkSection() {
             {steps.map((_, index) => (
               <div
                 key={index}
-                className={`w-2 h-2 rounded-full ${
-                  index === currentSlide ? 'bg-gray-600' : 'bg-gray-300'
-                }`}
+                className={`w-2 h-2 rounded-full ${index === currentSlide ? 'bg-gray-600' : 'bg-gray-300'
+                  }`}
               />
             ))}
           </div>

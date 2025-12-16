@@ -1,3 +1,5 @@
+import { LogoWhite } from "./LogoWhite";
+
 export function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-12">
@@ -5,8 +7,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company info */}
           <div>
-            <div className="w-32 h-12 border-2 border-gray-500 flex items-center justify-center mb-4">
-              <span className="text-gray-400 text-xs">ЛОГОТИП</span>
+            <div className="w-48 h-8 mb-4">
+              <LogoWhite className="w-full h-full" />
             </div>
             <div className="space-y-2">
               <div className="h-3 bg-gray-600 w-full"></div>

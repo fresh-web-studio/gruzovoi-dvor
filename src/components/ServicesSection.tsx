@@ -6,10 +6,10 @@ export function ServicesSection() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Section heading */}
         <div className="mb-12">
-          <div className="h-8 bg-gray-300 w-64 mx-auto mb-4 flex items-center justify-center">
+          <div className="h-8 bg-gray-300 max-w-xs md:max-w-md mx-auto mb-4 flex items-center justify-center">
             Услуги нашего сервиса
           </div>
-          <div className="h-4 bg-gray-200 w-96 mx-auto"></div>
+          <div className="h-4 bg-gray-200 max-w-sm md:max-w-lg mx-auto"></div>
         </div>
 
         {/* Services grid */}

@@ -4,7 +4,7 @@ export function StatisticsSection() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Section heading */}
         <div className="text-center mb-12">
-          <div className="h-8 bg-gray-600 w-72 mx-auto mb-4 flex items-center justify-center">
+          <div className="h-8 bg-gray-600 max-w-xs md:max-w-sm mx-auto mb-4 flex items-center justify-center">
             Наша работы в цыфрах
           </div>
         </div>
