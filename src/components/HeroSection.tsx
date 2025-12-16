@@ -1,3 +1,5 @@
+import heroImage from "../assets/images/hero-image.png";
+
 export function HeroSection() {
   return (
     <section className="border-b border-border bg-card py-20">
@@ -60,9 +62,11 @@ export function HeroSection() {
           {/* Правая колонка: изображение/заглушка */}
           <div className="flex-1">
             <div className="w-full h-80 border border-border flex items-center justify-center bg-card">
-              <span className="text-sm text-muted-foreground">
-                [Фото сервиса или грузовой техники]
-              </span>
+              <img
+                src={heroImage}
+                alt="Ремонт грузовых автомобилей и спецтехники"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

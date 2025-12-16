@@ -16,7 +16,29 @@ export function Header({ onNavigate }: HeaderProps) {
           <div className="grid grid-cols-3 gap-4">
             {/* Адрес */}
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 border border-border rounded-sm" />
+              <span className="inline-flex items-center justify-center w-4 h-4 text-[10px] text-primary">
+                {/* Иконка локации */}
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2.75a6.25 6.25 0 0 0-6.25 6.25c0 3.77 3.54 7.42 5.46 9.17.45.41 1.13.41 1.58 0 1.92-1.75 5.46-5.4 5.46-9.17A6.25 6.25 0 0 0 12 2.75Z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                  />
+                  <circle
+                    cx="12"
+                    cy="9"
+                    r="2.2"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                  />
+                </svg>
+              </span>
               <span className="text-sm text-muted-foreground">
                 г. Нижний Тагил, ул. Трикотажников, д. 7
               </span>
@@ -24,7 +46,30 @@ export function Header({ onNavigate }: HeaderProps) {
 
             {/* Время работы */}
             <div className="flex items-center gap-2 justify-center">
-              <div className="w-4 h-4 border border-border rounded-sm" />
+              <span className="inline-flex items-center justify-center w-4 h-4 text-[10px] text-primary">
+                {/* Иконка часов */}
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="7"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                  />
+                  <path
+                    d="M12 9v3.25L14 14"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
               <span className="text-sm text-muted-foreground">
                 Время работы: ежедневно, по предварительной записи
               </span>
@@ -32,7 +77,33 @@ export function Header({ onNavigate }: HeaderProps) {
 
             {/* Email */}
             <div className="flex items-center gap-2 justify-end">
-              <div className="w-4 h-4 border border-border rounded-sm" />
+              <span className="inline-flex items-center justify-center w-4 h-4 text-[10px] text-primary">
+                {/* Иконка конверта */}
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="4"
+                    y="6"
+                    width="16"
+                    height="12"
+                    rx="1.5"
+                    ry="1.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                  />
+                  <path
+                    d="M5 7.5 12 12l7-4.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
               <span className="text-sm text-muted-foreground">
                 Email: vvs@transfer01.ru
               </span>
