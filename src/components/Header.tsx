@@ -114,18 +114,27 @@ export function Header({ onNavigate }: HeaderProps) {
 
       {/* Основной header */}
       <div className="max-w-7xl mx-auto px-4 py-4">
-        <div className="flex items-center justify-between gap-4">
-          {/* Логотип */}
-          <Logo className="h-6 md:h-10 w-auto flex-shrink-0" />
+        <div className="flex items-center justify-between gap-4"
+        >
+          {/* Логотип с переходом на главную */}
+          <button
+            type="button"
+            onClick={() => onNavigate?.("home")}
+            className="flex items-center"
+          >
+            <Logo className="h-6 md:h-10 w-auto flex-shrink-0  cursor-pointer" />
+          </button>
 
           {/* Навигация (desktop) */}
           <nav className="hidden lg:flex gap-6">
+            {/* Убрал кнопку главная , так как не влазит меню 
             <div
               className="px-4 py-2 border border-border cursor-pointer"
               onClick={() => onNavigate?.("home")}
             >
               <span className="text-sm text-foreground">Главная</span>
             </div>
+ */}
             <div
               className="px-4 py-2 border border-border cursor-pointer"
               onClick={() => onNavigate?.("services")}
@@ -147,7 +156,7 @@ export function Header({ onNavigate }: HeaderProps) {
           </nav>
 
           {/* Контакты (desktop) */}
-          <div className="px-4 py-2 hidden md:block">
+          <div className="px-4 py-2 hidden sm:block">
             <span className="text-sm text-foreground">
               Сервис: +7&nbsp;950&nbsp;200‑65‑64
             </span>
@@ -222,8 +231,8 @@ export function Header({ onNavigate }: HeaderProps) {
               <span className="text-sm text-foreground">
                 Сервис: +7&nbsp;950&nbsp;200‑65‑64
               </span>
-              <span className="block text-xs text-muted-foreground">
-                Запчасти и WhatsApp: +7&nbsp;950&nbsp;200‑61‑72
+              <span className="block text-sm text-foreground">
+                Запчасти: +7&nbsp;950&nbsp;200‑61‑72
               </span>
             </div>
           </nav>

@@ -31,7 +31,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
         <WorkSection />
         <ReviewsSection />
         <StatisticsSection />
-        <ContactForm />
+        <section id="contact-form">
+          <ContactForm />
+        </section>
         <FAQSection />
       </main>
       <MapSection />
