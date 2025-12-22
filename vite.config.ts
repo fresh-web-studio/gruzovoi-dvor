@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: './', // для GitHub Pages
+  base: '/gruzovoi-dvor/', // для GitHub Pages
   build: {
     outDir: 'docs' // вместо 'dist' или другого значения
   }
