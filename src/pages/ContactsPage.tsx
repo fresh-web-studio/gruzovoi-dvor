@@ -1,7 +1,10 @@
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 export function ContactsPage() {
+  useDocumentTitle("Грузовой Двор‑НТ — Контакты")
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />

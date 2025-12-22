@@ -1,12 +1,14 @@
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 export function AboutPage() {
+  useDocumentTitle("Грузовой Двор‑НТ — О нашей компании")
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
-
       {/* Page Header */}
       <section className="py-12 bg-white border-b-2 border-gray-300">
         <div className="max-w-7xl mx-auto px-4">

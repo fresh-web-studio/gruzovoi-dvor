@@ -12,8 +12,11 @@ import { ContactForm } from "../components/ContactForm";
 import { FAQSection } from "../components/FAQSection";
 import { MapSection } from "../components/MapSection";
 import { Footer } from "../components/Footer";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 export function HomePage() {
+  useDocumentTitle("Грузовой Двор‑НТ — ремонт грузовиков в Нижнем Тагиле");
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
