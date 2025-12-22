@@ -23,7 +23,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <Header onNavigate={onNavigate} />
       <main>
         <HeroSection />
-        <ServicesSection />
+        <ServicesSection onNavigate={onNavigate} />
         <AboutSection />
         <ExpectationSection />
         <LogoSection />
@@ -31,9 +31,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         <WorkSection />
         <ReviewsSection />
         <StatisticsSection />
-        <section id="contact-form">
-          <ContactForm />
-        </section>
+        <ContactForm />
         <FAQSection />
       </main>
       <MapSection />

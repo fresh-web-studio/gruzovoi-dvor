@@ -1,6 +1,6 @@
 export function ContactForm() {
   return (
-    <section className="py-16 border-b-2 border-gray-300">
+    <section className="py-16 border-b-2 border-gray-300" id="contact-form">
       <div className="max-w-7xl mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {/* Section heading */}
