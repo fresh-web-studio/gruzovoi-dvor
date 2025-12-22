@@ -2,14 +2,10 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-interface AboutPageProps {
-  onNavigate: (page: string) => void;
-}
-
-export function AboutPage({ onNavigate }: AboutPageProps) {
+export function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      <Header onNavigate={onNavigate} />
+      <Header />
 
       {/* Page Header */}
       <section className="py-12 bg-white border-b-2 border-gray-300">

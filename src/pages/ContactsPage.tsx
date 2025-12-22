@@ -1,16 +1,10 @@
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
-interface ContactsPageProps {
-  onNavigate: (page: string) => void;
-}
-
-export function ContactsPage({
-  onNavigate,
-}: ContactsPageProps) {
+export function ContactsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header onNavigate={onNavigate} />
+      <Header />
       <main>
         {/* Page Hero */}
         <section className="py-12 bg-white border-b-2 border-gray-300">

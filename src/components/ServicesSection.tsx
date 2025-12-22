@@ -1,7 +1,7 @@
 // src/components/ServicesSection.tsx
+import { Link } from "react-router-dom";
 import { ServiceIcon } from "./ServiceIcons";
 import type { ServiceIconKey } from "./ServiceIcons";
-
 
 interface Service {
   name: string;
@@ -210,15 +210,7 @@ const ALL_SERVICES: Service[] = [
 
 const HOME_SERVICES = ALL_SERVICES.slice(0, 6);
 
-interface ServicesSectionProps {
-  onNavigate?: (page: string) => void;
-}
-
-export function ServicesSection({ onNavigate }: ServicesSectionProps) {
-  const handleAllServicesClick = () => {
-    onNavigate?.("services");
-  };
-
+export function ServicesSection() {
   return (
     <section className="py-16 border-b border-gray-300 bg-muted/40">
       <div className="max-w-7xl mx-auto px-4">
@@ -232,9 +224,9 @@ export function ServicesSection({ onNavigate }: ServicesSectionProps) {
               Основные работы по техническому обслуживанию и ремонту.
             </p>
           </div>
-          <button
-            type="button"
-            onClick={handleAllServicesClick}
+
+          <Link
+            to="/uslugi"
             className="
               inline-flex items-center justify-center
               px-5 py-2 rounded-md
@@ -245,7 +237,7 @@ export function ServicesSection({ onNavigate }: ServicesSectionProps) {
             "
           >
             Все услуги
-          </button>
+          </Link>
         </div>
 
         {/* Сетка из 6 услуг */}

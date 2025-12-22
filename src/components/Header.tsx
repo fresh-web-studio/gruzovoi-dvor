@@ -1,12 +1,17 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Logo } from "./Logo";
 
-interface HeaderProps {
-  onNavigate?: (page: string) => void;
-}
-
-export function Header({ onNavigate }: HeaderProps) {
+export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate("/");
+    setMobileMenuOpen(false);
+  };
+
+  const closeMobile = () => setMobileMenuOpen(false);
 
   return (
     <header className="border-b border-border bg-card">
@@ -17,12 +22,7 @@ export function Header({ onNavigate }: HeaderProps) {
             {/* Адрес */}
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center justify-center w-4 h-4 text-[10px] text-primary">
-                {/* Иконка локации */}
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4"
-                  aria-hidden="true"
-                >
+                <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
                   <path
                     d="M12 2.75a6.25 6.25 0 0 0-6.25 6.25c0 3.77 3.54 7.42 5.46 9.17.45.41 1.13.41 1.58 0 1.92-1.75 5.46-5.4 5.46-9.17A6.25 6.25 0 0 0 12 2.75Z"
                     fill="none"
@@ -47,12 +47,7 @@ export function Header({ onNavigate }: HeaderProps) {
             {/* Время работы */}
             <div className="flex items-center gap-2 justify-center">
               <span className="inline-flex items-center justify-center w-4 h-4 text-[10px] text-primary">
-                {/* Иконка часов */}
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4"
-                  aria-hidden="true"
-                >
+                <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
                   <circle
                     cx="12"
                     cy="12"
@@ -78,12 +73,7 @@ export function Header({ onNavigate }: HeaderProps) {
             {/* Email */}
             <div className="flex items-center gap-2 justify-end">
               <span className="inline-flex items-center justify-center w-4 h-4 text-[10px] text-primary">
-                {/* Иконка конверта */}
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4"
-                  aria-hidden="true"
-                >
+                <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
                   <rect
                     x="4"
                     y="6"
@@ -114,45 +104,36 @@ export function Header({ onNavigate }: HeaderProps) {
 
       {/* Основной header */}
       <div className="max-w-7xl mx-auto px-4 py-4">
-        <div className="flex items-center justify-between gap-4"
-        >
-          {/* Логотип с переходом на главную */}
+        <div className="flex items-center justify-between gap-4">
+          {/* Логотип — переход на главную */}
           <button
             type="button"
-            onClick={() => onNavigate?.("home")}
+            onClick={handleLogoClick}
             className="flex items-center"
           >
-            <Logo className="h-6 md:h-10 w-auto flex-shrink-0  cursor-pointer" />
+            <Logo className="h-6 md:h-10 w-auto flex-shrink-0 cursor-pointer" />
           </button>
 
           {/* Навигация (desktop) */}
           <nav className="hidden lg:flex gap-6">
-            {/* Убрал кнопку главная , так как не влазит меню 
-            <div
-              className="px-4 py-2 border border-border cursor-pointer"
-              onClick={() => onNavigate?.("home")}
+            <Link
+              to="/uslugi"
+              className="px-4 py-2 border border-border text-sm text-foreground hover:bg-primary hover:text-white transition-colors"
             >
-              <span className="text-sm text-foreground">Главная</span>
-            </div>
- */}
-            <div
-              className="px-4 py-2 border border-border cursor-pointer"
-              onClick={() => onNavigate?.("services")}
+              Услуги
+            </Link>
+            <Link
+              to="/o-nas"
+              className="px-4 py-2 border border-border text-sm text-foreground hover:bg-primary hover:text-white transition-colors"
             >
-              <span className="text-sm text-foreground">Услуги</span>
-            </div>
-            <div
-              className="px-4 py-2 border border-border cursor-pointer"
-              onClick={() => onNavigate?.("about")}
+              О нас
+            </Link>
+            <Link
+              to="/kontakty"
+              className="px-4 py-2 border border-border text-sm text-foreground hover:bg-primary hover:text-white transition-colors"
             >
-              <span className="text-sm text-foreground">О нас</span>
-            </div>
-            <div
-              className="px-4 py-2 border border-border cursor-pointer"
-              onClick={() => onNavigate?.("contacts")}
-            >
-              <span className="text-sm text-foreground">Контакты</span>
-            </div>
+              Контакты
+            </Link>
           </nav>
 
           {/* Контакты (desktop) */}
@@ -165,7 +146,7 @@ export function Header({ onNavigate }: HeaderProps) {
             </span>
           </div>
 
-          {/* Кнопка мобильного меню (бургера) */}
+          {/* Кнопка мобильного меню */}
           <button
             className="lg:hidden p-2 border-2 border-border w-10 h-10 flex flex-col items-center justify-center gap-1"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -189,42 +170,34 @@ export function Header({ onNavigate }: HeaderProps) {
         {/* Мобильная навигация */}
         {mobileMenuOpen && (
           <nav className="lg:hidden mt-4 border-t border-border pt-4 space-y-3">
-            <div
-              className="px-4 py-3 border border-border cursor-pointer"
-              onClick={() => {
-                onNavigate?.("home");
-                setMobileMenuOpen(false);
-              }}
+            <Link
+              to="/"
+              className="block px-4 py-3 border border-border text-sm text-foreground"
+              onClick={closeMobile}
             >
-              <span className="text-sm text-foreground">Главная</span>
-            </div>
-            <div
-              className="px-4 py-3 border border-border cursor-pointer"
-              onClick={() => {
-                onNavigate?.("services");
-                setMobileMenuOpen(false);
-              }}
+              Главная
+            </Link>
+            <Link
+              to="/uslugi"
+              className="block px-4 py-3 border border-border text-sm text-foreground"
+              onClick={closeMobile}
             >
-              <span className="text-sm text-foreground">Услуги</span>
-            </div>
-            <div
-              className="px-4 py-3 border border-border cursor-pointer"
-              onClick={() => {
-                onNavigate?.("about");
-                setMobileMenuOpen(false);
-              }}
+              Услуги
+            </Link>
+            <Link
+              to="/o-nas"
+              className="block px-4 py-3 border border-border text-sm text-foreground"
+              onClick={closeMobile}
             >
-              <span className="text-sm text-foreground">О нас</span>
-            </div>
-            <div
-              className="px-4 py-3 border border-border cursor-pointer"
-              onClick={() => {
-                onNavigate?.("contacts");
-                setMobileMenuOpen(false);
-              }}
+              О нас
+            </Link>
+            <Link
+              to="/kontakty"
+              className="block px-4 py-3 border border-border text-sm text-foreground"
+              onClick={closeMobile}
             >
-              <span className="text-sm text-foreground">Контакты</span>
-            </div>
+              Контакты
+            </Link>
 
             {/* Контакты (mobile) */}
             <div className="border border-border px-4 py-3">

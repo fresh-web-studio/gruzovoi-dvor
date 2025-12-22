@@ -5,14 +5,10 @@ import { ALL_SERVICES } from "../components/ServicesSection";
 import { ServiceIcon } from "../components/ServiceIcons";
 import type { ServiceIconKey } from "../components/ServiceIcons";
 
-interface ServicesPageProps {
-  onNavigate: (page: string) => void;
-}
-
-export function ServicesPage({ onNavigate }: ServicesPageProps) {
+export function ServicesPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header onNavigate={onNavigate} />
+      <Header />
 
       <main className="py-16 border-b border-gray-300 bg-muted/40">
         <div className="max-w-7xl mx-auto px-4">

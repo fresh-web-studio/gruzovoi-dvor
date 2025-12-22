@@ -13,17 +13,13 @@ import { FAQSection } from "../components/FAQSection";
 import { MapSection } from "../components/MapSection";
 import { Footer } from "../components/Footer";
 
-interface HomePageProps {
-  onNavigate: (page: string) => void;
-}
-
-export function HomePage({ onNavigate }: HomePageProps) {
+export function HomePage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header onNavigate={onNavigate} />
+      <Header />
       <main>
         <HeroSection />
-        <ServicesSection onNavigate={onNavigate} />
+        <ServicesSection />
         <AboutSection />
         <ExpectationSection />
         <LogoSection />
