@@ -1,66 +1,114 @@
+// src/components/ExpectationSection.tsx
+import { ExpectationIcon, type ExpectationIconKey } from "./ExpectationIcons";
+
+type ExpectationItem = {
+  id: string;
+  icon: ExpectationIconKey;
+  title: string;
+  description: string;
+};
+
+const EXPECTATION_ITEMS: ExpectationItem[] = [
+  {
+    id: "sofa",
+    icon: "sofa",
+    title: "Уютная зона с диваном",
+    description:
+      "Комфортные кресла и диван, аккуратный интерьер и спокойная атмосфера — чтобы не чувствовать себя в гараже.",
+  },
+  {
+    id: "coffee",
+    icon: "coffee",
+    title: "Кофе, чай и вода",
+    description:
+      "Горячий кофе, чай и охлаждённая вода доступны бесплатно на протяжении всего времени обслуживания.",
+  },
+  {
+    id: "wifi",
+    icon: "wifi",
+    title: "Быстрый Wi‑Fi и розетки",
+    description:
+      "Стабильный Wi‑Fi и розетки рядом с посадочными местами позволяют поработать или заняться личными делами онлайн.",
+  },
+  {
+    id: "tv",
+    icon: "tv",
+    title: "ТВ и журналы",
+    description:
+      "Большой экран с ненавязчивым контентом и подборка журналов помогают скоротать ожидание даже при сложных работах.",
+  },
+  {
+    id: "kids",
+    icon: "kids",
+    title: "Зона для детей",
+    description:
+      "Для маленьких гостей есть раскраски и настольные игры, чтобы детям было спокойно и интересно.",
+  },
+  {
+    id: "transparency",
+    icon: "transparency",
+    title: "Прозрачность работ",
+    description:
+      "Вы всегда понимаете, на каком этапе сейчас ваш автомобиль: статус заказа и ориентировочное время готовности.",
+  },
+];
+
+type ExpectationCardProps = {
+  item: ExpectationItem;
+};
+
+function ExpectationCard({ item }: ExpectationCardProps) {
+  return (
+    <article
+      className="
+        border border-border
+        rounded-xl
+        bg-card
+        p-6
+        shadow-sm
+        hover:border-primary/70 hover:shadow-md
+        transition-colors transition-shadow
+      "
+    >
+      <div className="w-16 h-16 rounded-lg border border-border mb-4 mx-auto flex items-center justify-center bg-primary/5 text-primary">
+        <ExpectationIcon type={item.icon} />
+      </div>
+
+      <h3 className="text-base md:text-lg font-semibold text-foreground text-center mb-3">
+        {item.title}
+      </h3>
+
+      <p className="text-sm text-muted-foreground text-center">
+        {item.description}
+      </p>
+    </article>
+  );
+}
+
 export function ExpectationSection() {
   return (
-    <section className="py-16 bg-gray-50 border-b-2 border-gray-300">
+    <section className="py-16 border-b border-gray-300 bg-muted/40">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Section title */}
-        <div className="text-center mb-12">
-          <div className="h-8 bg-gray-300 max-w-xs md:max-w-md mx-auto mb-4 flex items-center justify-center">
+        {/* Заголовок */}
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground">
             Комфортное ожидание
-          </div>
-          <div className="h-4 bg-gray-200 max-w-sm md:max-w-xl mx-auto"></div>
+          </h2>
+          <p className="mt-2 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+            Пока мы занимаемся вашим автомобилем, вы можете спокойно отдохнуть
+            в чистой и комфортной зоне ожидания.
+          </p>
         </div>
 
-        {/* Expectation items grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Item 1 */}
-          <div className="border-2 border-gray-400 p-6 bg-white">
-            <div className="w-16 h-16 border-2 border-gray-400 mx-auto mb-4"></div>
-            <div className="h-5 bg-gray-300 w-3/4 mx-auto mb-3"></div>
-            <div className="h-3 bg-gray-200 w-full mb-2"></div>
-            <div className="h-3 bg-gray-200 w-5/6 mx-auto"></div>
-          </div>
-
-          {/* Item 2 */}
-          <div className="border-2 border-gray-400 p-6 bg-white">
-            <div className="w-16 h-16 border-2 border-gray-400 mx-auto mb-4"></div>
-            <div className="h-5 bg-gray-300 w-2/3 mx-auto mb-3"></div>
-            <div className="h-3 bg-gray-200 w-full mb-2"></div>
-            <div className="h-3 bg-gray-200 w-4/5 mx-auto"></div>
-          </div>
-
-          {/* Item 3 */}
-          <div className="border-2 border-gray-400 p-6 bg-white">
-            <div className="w-16 h-16 border-2 border-gray-400 mx-auto mb-4"></div>
-            <div className="h-5 bg-gray-300 w-3/4 mx-auto mb-3"></div>
-            <div className="h-3 bg-gray-200 w-full mb-2"></div>
-            <div className="h-3 bg-gray-200 w-5/6 mx-auto"></div>
-          </div>
-
-          {/* Item 4 */}
-          <div className="border-2 border-gray-400 p-6 bg-white">
-            <div className="w-16 h-16 border-2 border-gray-400 mx-auto mb-4"></div>
-            <div className="h-5 bg-gray-300 w-2/3 mx-auto mb-3"></div>
-            <div className="h-3 bg-gray-200 w-full mb-2"></div>
-            <div className="h-3 bg-gray-200 w-4/5 mx-auto"></div>
-          </div>
-
-          {/* Item 5 */}
-          <div className="border-2 border-gray-400 p-6 bg-white">
-            <div className="w-16 h-16 border-2 border-gray-400 mx-auto mb-4"></div>
-            <div className="h-5 bg-gray-300 w-3/4 mx-auto mb-3"></div>
-            <div className="h-3 bg-gray-200 w-full mb-2"></div>
-            <div className="h-3 bg-gray-200 w-5/6 mx-auto"></div>
-          </div>
-
-          {/* Item 6 */}
-          <div className="border-2 border-gray-400 p-6 bg-white">
-            <div className="w-16 h-16 border-2 border-gray-400 mx-auto mb-4"></div>
-            <div className="h-5 bg-gray-300 w-2/3 mx-auto mb-3"></div>
-            <div className="h-3 bg-gray-200 w-full mb-2"></div>
-            <div className="h-3 bg-gray-200 w-4/5 mx-auto"></div>
-          </div>
+        {/* Сетка преимуществ */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {EXPECTATION_ITEMS.map((item) => (
+            <ExpectationCard key={item.id} item={item} />
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
+export { EXPECTATION_ITEMS };
