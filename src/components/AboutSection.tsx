@@ -1,9 +1,3 @@
-import {
-  TruckIcon,
-  WrenchIcon,
-  ClockIcon,
-  ShieldCheckIcon,
-} from "@heroicons/react/24/outline";
 import aboutWorkshop from "../assets/images/about-workshop.jpg";
 
 export function AboutSection() {
@@ -45,64 +39,7 @@ export function AboutSection() {
               </p>
             </div>
 
-            {/* 4 блока с иконками, иконки по центру по вертикали */}
-            <div className="grid gap-3 sm:grid-cols-2">
-              <div className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-50 text-[#c92424]">
-                  <TruckIcon className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-gray-900">
-                    Опытная команда
-                  </p>
-                  <p className="mt-1 text-xs leading-snug text-gray-600">
-                    Мастера, ежедневно работающие с грузовой техникой.
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-50 text-[#c92424]">
-                  <WrenchIcon className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-gray-900">
-                    Оснащённый техцентр
-                  </p>
-                  <p className="mt-1 text-xs leading-snug text-gray-600">
-                    Посты для длинномеров и современное оборудование.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-50 text-[#c92424]">
-                  <ClockIcon className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-gray-900">
-                    Понимание сроков
-                  </p>
-                  <p className="mt-1 text-xs leading-snug text-gray-600">
-                    Планируем работы так, чтобы сократить простой машины.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-50 text-[#c92424]">
-                  <ShieldCheckIcon className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-gray-900">
-                    Понятные условия
-                  </p>
-                  <p className="mt-1 text-xs leading-snug text-gray-600">
-                    Фиксируем объём работ и стоимость до начала ремонта.
-                  </p>
-                </div>
-              </div>
-            </div>
 
             {/* Кнопка под блоками */}
             <button

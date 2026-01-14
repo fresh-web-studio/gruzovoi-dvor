@@ -1,58 +1,84 @@
+import {
+  TruckIcon,
+  WrenchIcon,
+  ClockIcon,
+  ShieldCheckIcon,
+} from "@heroicons/react/24/outline";
+
 export function FeaturesSection() {
   return (
-    <section className="py-16 bg-white border-b-2 border-gray-300">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Section title */}
-        <div className="text-center mb-12">
-          <div className="h-8 bg-gray-300 max-w-xs md:max-w-md mx-auto mb-4 flex items-center justify-center">
+    <section className="bg-white py-16 border-b border-gray-200">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Заголовок в стиле \"Комфортное ожидание\" */}
+        <div className="text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
             Наши преимущества
-          </div>
-          <div className="h-4 bg-gray-200 max-w-sm md:max-w-lg mx-auto"></div>
+          </h2>
+          <p className="mt-3 mx-auto max-w-xl text-sm sm:text-base text-gray-700 leading-relaxed">
+            Сервис для грузовой техники, который помогает сокращать простой
+            и планировать ремонт без лишних рисков.
+          </p>
         </div>
 
-        {/* Features grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Feature 1 */}
-          <div className="flex gap-4 border-2 border-gray-400 p-6 bg-gray-50">
-            <div className="w-20 h-20 border-2 border-gray-400 flex-shrink-0"></div>
-            <div className="flex-1">
-              <div className="h-5 bg-gray-300 w-2/3 mb-3"></div>
-              <div className="h-3 bg-gray-200 w-full mb-2"></div>
-              <div className="h-3 bg-gray-200 w-5/6 mb-2"></div>
-              <div className="h-3 bg-gray-200 w-4/5"></div>
+        {/* Сетка преимуществ */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
+          <div className="flex items-center gap-4 rounded-lg border border-gray-200 bg-gray-50 px-5 py-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-[#c92424]">
+              <TruckIcon className="h-7 w-7" />
+            </div>
+            <div>
+              <p className="text-sm sm:text-base font-semibold text-gray-900">
+                Работа с любым парком техники
+              </p>
+              <p className="mt-1 text-sm leading-snug text-gray-600">
+                Обслуживаем одиночные грузовики и небольшие автопарки, знаем специфику
+                европейских и отечественных марок.
+              </p>
             </div>
           </div>
 
-          {/* Feature 2 */}
-          <div className="flex gap-4 border-2 border-gray-400 p-6 bg-gray-50">
-            <div className="w-20 h-20 border-2 border-gray-400 flex-shrink-0"></div>
-            <div className="flex-1">
-              <div className="h-5 bg-gray-300 w-3/4 mb-3"></div>
-              <div className="h-3 bg-gray-200 w-full mb-2"></div>
-              <div className="h-3 bg-gray-200 w-5/6 mb-2"></div>
-              <div className="h-3 bg-gray-200 w-3/4"></div>
+          <div className="flex items-center gap-4 rounded-lg border border-gray-200 bg-gray-50 px-5 py-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-[#c92424]">
+              <WrenchIcon className="h-7 w-7" />
+            </div>
+            <div>
+              <p className="text-sm sm:text-base font-semibold text-gray-900">
+                Оснащённый ремонтный техцентр
+              </p>
+              <p className="mt-1 text-sm leading-snug text-gray-600">
+                Посты для длинномеров, подъёмное оборудование и профессиональный
+                инструмент для быстрого и качественного ремонта.
+              </p>
             </div>
           </div>
 
-          {/* Feature 3 */}
-          <div className="flex gap-4 border-2 border-gray-400 p-6 bg-gray-50">
-            <div className="w-20 h-20 border-2 border-gray-400 flex-shrink-0"></div>
-            <div className="flex-1">
-              <div className="h-5 bg-gray-300 w-2/3 mb-3"></div>
-              <div className="h-3 bg-gray-200 w-full mb-2"></div>
-              <div className="h-3 bg-gray-200 w-5/6 mb-2"></div>
-              <div className="h-3 bg-gray-200 w-4/5"></div>
+          <div className="flex items-center gap-4 rounded-lg border border-gray-200 bg-gray-50 px-5 py-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-[#c92424]">
+              <ClockIcon className="h-7 w-7" />
+            </div>
+            <div>
+              <p className="text-sm sm:text-base font-semibold text-gray-900">
+                Реальное понимание сроков
+              </p>
+              <p className="mt-1 text-sm leading-snug text-gray-600">
+                Сразу говорим, сколько займут работы, и подстраиваем ремонт под ваши
+                рейсы и загрузку автопарка.
+              </p>
             </div>
           </div>
 
-          {/* Feature 4 */}
-          <div className="flex gap-4 border-2 border-gray-400 p-6 bg-gray-50">
-            <div className="w-20 h-20 border-2 border-gray-400 flex-shrink-0"></div>
-            <div className="flex-1">
-              <div className="h-5 bg-gray-300 w-3/4 mb-3"></div>
-              <div className="h-3 bg-gray-200 w-full mb-2"></div>
-              <div className="h-3 bg-gray-200 w-5/6 mb-2"></div>
-              <div className="h-3 bg-gray-200 w-3/4"></div>
+          <div className="flex items-center gap-4 rounded-lg border border-gray-200 bg-gray-50 px-5 py-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-[#c92424]">
+              <ShieldCheckIcon className="h-7 w-7" />
+            </div>
+            <div>
+              <p className="text-sm sm:text-base font-semibold text-gray-900">
+                Прозрачные условия и гарантия
+              </p>
+              <p className="mt-1 text-sm leading-snug text-gray-600">
+                Согласуем работы и запчасти до начала ремонта и даём гарантию на
+                выполненные работы без скрытых доплат.
+              </p>
             </div>
           </div>
         </div>
