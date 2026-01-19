@@ -18,7 +18,8 @@ export function Header() {
       {/* Верхняя инфо-панель (desktop) */}
       <div className="border-b border-border bg-card hidden md:block">
         <div className="max-w-7xl mx-auto px-4 py-3">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-[1.4fr_2fr_1.3fr] gap-4">
+
             {/* Адрес */}
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center justify-center w-4 h-4 text-[10px] text-primary">
