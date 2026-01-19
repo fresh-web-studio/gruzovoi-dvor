@@ -1,88 +1,86 @@
+import { useState } from "react";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+
 export function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqItems = [
+    {
+      question: "Какие марки грузовиков вы обслуживаете?",
+      answer:
+        "Мы работаем с европейскими марками (Volvo, Scania, DAF, MAN) и отечественными грузовиками. Также обслуживаем прицепы, полуприцепы и спецтехнику. Если у вас есть сомнения, позвоните нам — уточним по телефону.",
+    },
+    {
+      question: "Сколько стоит диагностика грузовика?",
+      answer:
+        "Диагностика обычно бесплатна, если вы затем делаете у нас ремонт. Если нужна только консультация без работ, стоимость уточняйте по телефону. После диагностики мы дадим вам смету с точной стоимостью ремонта.",
+    },
+    {
+      question: "Как долго занимает плановое ТО грузовика?",
+      answer:
+        "Плановое техническое обслуживание зависит от объёма и модели машины. Обычно это занимает от 4 до 8 часов. Мы можем планировать работы в удобное вам время, чтобы минимизировать простой техники.",
+    },
+    {
+      question: "Какая гарантия на выполненные работы?",
+      answer:
+        "На все виды работ мы даём гарантию. Сроки гарантии зависят от типа ремонта и обсуждаются с вами перед началом работ. Гарантия распространяется на выполненные услуги и использованные запчасти, если они куплены у нас.",
+    },
+    {
+      question: "Можете ли вы приехать к месту поломки?",
+      answer:
+        "Мы работаем со своей мастерской в Нижнем Тагиле. При серьёзных поломках в дороге рекомендуем эвакуировать машину к нам. Уточняйте возможность выезда по телефону для вашего конкретного случая.",
+    },
+  ];
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section className="py-16 bg-white border-b-2 border-gray-300">
-      <div className="max-w-4xl mx-auto px-4">
-        {/* Section title */}
-        <div className="text-center mb-12">
-          <div className="h-8 bg-gray-300 max-w-full md:max-w-md mx-auto mb-4 flex items-center justify-center">
+    <section className="py-16 bg-white border-b border-gray-200">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Заголовок */}
+        <div className="text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
             Часто задаваемые вопросы
-          </div>
-          <div className="h-4 bg-gray-200 max-w-sm md:max-w-md mx-auto"></div>
+          </h2>
+          <p className="mt-3 mx-auto max-w-xl text-sm sm:text-base text-gray-700 leading-relaxed">
+            Ответы на самые популярные вопросы о ремонте грузовиков и обслуживании техники.
+          </p>
         </div>
 
-        {/* FAQ items */}
-        <div className="space-y-4">
-          {/* FAQ Item 1 */}
-          <div className="border-2 border-gray-400 p-4 md:p-6">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
-                <div className="h-5 bg-gray-300 w-3/4 mb-3"></div>
-                <div className="h-3 bg-gray-200 w-full mb-2"></div>
-                <div className="h-3 bg-gray-200 w-5/6"></div>
-              </div>
-              <div className="w-6 h-6 border-2 border-gray-500 flex items-center justify-center flex-shrink-0">
-                <span className="text-gray-500">+</span>
-              </div>
-            </div>
-          </div>
+        {/* FAQ элементы */}
+        <div className="space-y-3 max-w-3xl mx-auto">
+          {faqItems.map((item, index) => (
+            <div
+              key={index}
+              className="border border-gray-200 rounded-lg bg-white hover:border-gray-300 transition-colors"
+            >
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full px-5 py-4 sm:px-6 sm:py-5 flex items-start justify-between gap-4 text-left hover:bg-gray-50 transition-colors cursor-pointer"
+              >
+                <h3 className="text-sm sm:text-base font-semibold text-gray-900 flex-1">
+                  {item.question}
+                </h3>
+                <div
+                  className={`flex h-6 w-6 items-center justify-center rounded-full bg-red-50 text-red-600 flex-shrink-0 transition-transform ${openIndex === index ? "rotate-180" : ""
+                    }`}
+                >
+                  <ChevronDownIcon className="h-5 w-5" />
+                </div>
+              </button>
 
-          {/* FAQ Item 2 */}
-          <div className="border-2 border-gray-400 p-4 md:p-6">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
-                <div className="h-5 bg-gray-300 w-2/3 mb-3"></div>
-                <div className="h-3 bg-gray-200 w-full mb-2"></div>
-                <div className="h-3 bg-gray-200 w-4/5"></div>
-              </div>
-              <div className="w-6 h-6 border-2 border-gray-500 flex items-center justify-center flex-shrink-0">
-                <span className="text-gray-500">+</span>
-              </div>
+              {/* Ответ (раскрывается/закрывается) */}
+              {openIndex === index && (
+                <div className="border-t border-gray-200 px-5 py-4 sm:px-6 sm:py-5 bg-gray-50">
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    {item.answer}
+                  </p>
+                </div>
+              )}
             </div>
-          </div>
-
-          {/* FAQ Item 3 */}
-          <div className="border-2 border-gray-400 p-4 md:p-6">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
-                <div className="h-5 bg-gray-300 w-4/5 mb-3"></div>
-                <div className="h-3 bg-gray-200 w-full mb-2"></div>
-                <div className="h-3 bg-gray-200 w-11/12 mb-2"></div>
-                <div className="h-3 bg-gray-200 w-3/4"></div>
-              </div>
-              <div className="w-6 h-6 border-2 border-gray-500 flex items-center justify-center flex-shrink-0">
-                <span className="text-gray-500">+</span>
-              </div>
-            </div>
-          </div>
-
-          {/* FAQ Item 4 */}
-          <div className="border-2 border-gray-400 p-4 md:p-6">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
-                <div className="h-5 bg-gray-300 w-3/5 mb-3"></div>
-                <div className="h-3 bg-gray-200 w-full mb-2"></div>
-                <div className="h-3 bg-gray-200 w-5/6"></div>
-              </div>
-              <div className="w-6 h-6 border-2 border-gray-500 flex items-center justify-center flex-shrink-0">
-                <span className="text-gray-500">+</span>
-              </div>
-            </div>
-          </div>
-
-          {/* FAQ Item 5 */}
-          <div className="border-2 border-gray-400 p-4 md:p-6">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
-                <div className="h-5 bg-gray-300 w-2/3 mb-3"></div>
-                <div className="h-3 bg-gray-200 w-full mb-2"></div>
-                <div className="h-3 bg-gray-200 w-4/5 mb-2"></div>
-                <div className="h-3 bg-gray-200 w-3/5"></div>
-              </div>
-              <div className="w-6 h-6 border-2 border-gray-500 flex items-center justify-center flex-shrink-0">
-                <span className="text-gray-500">+</span>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
