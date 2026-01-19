@@ -3,13 +3,8 @@ export function MapSection() {
     <section className="relative border-b border-gray-200 bg-gray-100">
       {/* Карта 2ГИС */}
       <div className="w-full h-[380px] sm:h-[420px] lg:h-[460px]">
-        <iframe
-          title="Карта проезда к сервису «Грузовой Двор‑НТ»"
-          src="https://maps.2gis.com/embed?query=Нижний%20Тагил%2C%20улица%20Трикотажников%2C%207"
-          className="w-full h-full border-0"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
+        <iframe id="map_763809122" width="100%" height="460px" src="https://makemap.2gis.ru/widget?data=eJw9UE1zgjAU_C_pUcYJ34QbjSPaZhhCDx3b8cBIpLGRMCFYlfG_N6BtTi-7-_a9twOQqmKKVSmTR6YVZx2IPwegLy0DMViyUveKAQu0SrZM6YkfwE4KqQz_tHeg44-85lqMHaasWLdTvNVcNgbIV8kMvuRFnaULSPb0pPEFkpD2bwsqsqkuauzSpsIc968JR5hCQopa4xncrKiu0sT8aZ-lz-sMQ0hOxeGyoB0y-CanGhmd0XOULg3_899LruOsMyQH2iNsQ_IdETeZmQWv66ZiZxDb8O_dLFDfA7iM5z2uzyVvtNHvpAmJN6WewgngHIah69mWH86R7aEg3Jp-Xo2GyLttLXAs21x2_J7AAESpQfwQhz5CThhErhNYQIz83c_2nciLHM8NHbOglEfjFhlbE6UU4v2LMfExoVr17PYLcKeF2w" sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
+
       </div>
 
       {/* Информационная карточка поверх карты */}
@@ -80,14 +75,7 @@ export function MapSection() {
           </div>
 
           {/* Кнопка перехода к услугам */}
-          <a
-            href="https://2gis.ru"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center rounded-md bg-[#c92424] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#b02020] transition-colors"
-          >
-            Построить маршрут в 2ГИС
-          </a>
+          <a className="inline-flex w-full items-center justify-center rounded-md bg-[#c92424] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#b02020] transition-colors" href="https://2gis.ru/directions/tab/bus/points/|60.077341,57.914967?m=60.07715284824372,57.914975992768326%2F18&amp;routeLink=true" target="_blank">Доехать с 2ГИС</a>
         </div>
       </div>
     </section>
