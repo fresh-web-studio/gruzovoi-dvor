@@ -31,20 +31,6 @@ const EXPECTATION_ITEMS: ExpectationItem[] = [
       "Стабильный Wi‑Fi и розетки рядом с посадочными местами позволяют поработать или заняться личными делами онлайн.",
   },
   {
-    id: "tv",
-    icon: "tv",
-    title: "ТВ и журналы",
-    description:
-      "Большой экран с ненавязчивым контентом и подборка журналов помогают скоротать ожидание даже при сложных работах.",
-  },
-  {
-    id: "kids",
-    icon: "kids",
-    title: "Зона для детей",
-    description:
-      "Для маленьких гостей есть раскраски и настольные игры, чтобы детям было спокойно и интересно.",
-  },
-  {
     id: "transparency",
     icon: "transparency",
     title: "Прозрачность работ",
@@ -101,7 +87,7 @@ export function ExpectationSection() {
         </div>
 
         {/* Сетка преимуществ */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {EXPECTATION_ITEMS.map((item) => (
             <ExpectationCard key={item.id} item={item} />
           ))}
