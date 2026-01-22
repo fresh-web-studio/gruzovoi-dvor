@@ -1,14 +1,19 @@
 // src/components/LogoSection.tsx
-import bawLogo from "../assets/logos/baw.svg";
+import kamazLogo from "../assets/logos/kamaz.svg";
+import mazLogo from "../assets/logos/maz.svg";
+import uralLogo from "../assets/logos/ural.svg";
+import gazLogo from "../assets/logos/gaz.svg";
+import howoLogo from "../assets/logos/howo.svg";
+import sitrakLogo from "../assets/logos/sitrak.svg";
+import shacmanLogo from "../assets/logos/shacman.svg";
 import hyundaiLogo from "../assets/logos/hyundai.svg";
 import isuzuLogo from "../assets/logos/isuzu.svg";
-import ivecoLogo from "../assets/logos/iveco.svg";
-import manLogo from "../assets/logos/man.svg";
 import fusoLogo from "../assets/logos/fuso.svg";
-import scaniaLogo from "../assets/logos/scania.svg";
 import volvoLogo from "../assets/logos/volvo.svg";
-import kamazLogo from "../assets/logos/kamaz.svg";
-import uralLogo from "../assets/logos/ural.svg";
+import mercedesLogo from "../assets/logos/mercedes.svg";
+import dafLogo from "../assets/logos/daf.svg";
+import scaniaLogo from "../assets/logos/scania.svg";
+import manLogo from "../assets/logos/man.svg";
 
 type TruckBrand = {
   name: string;
@@ -16,16 +21,21 @@ type TruckBrand = {
 };
 
 const TRUCK_BRANDS: TruckBrand[] = [
-  { name: "BAW", logo: bawLogo },
+  { name: "КамАЗ", logo: kamazLogo },
+  { name: "МАЗ", logo: mazLogo },
+  { name: "Урал", logo: uralLogo },
+  { name: "ГАЗ", logo: gazLogo },
+  { name: "HOWO", logo: howoLogo },
+  { name: "SITRAK", logo: sitrakLogo },
+  { name: "SHACMAN", logo: shacmanLogo },
   { name: "Hyundai", logo: hyundaiLogo },
   { name: "Isuzu", logo: isuzuLogo },
-  { name: "IVECO", logo: ivecoLogo },
-  { name: "MAN", logo: manLogo },
   { name: "Mitsubishi Fuso", logo: fusoLogo },
-  { name: "Scania", logo: scaniaLogo },
   { name: "Volvo", logo: volvoLogo },
-  { name: "КамАЗ", logo: kamazLogo },
-  { name: "Урал", logo: uralLogo },
+  { name: "Mercedes", logo: mercedesLogo },
+  { name: "DAF", logo: dafLogo },
+  { name: "Scania", logo: scaniaLogo },
+  { name: "MAN", logo: manLogo },
 ];
 
 export function LogoSection() {
