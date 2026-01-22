@@ -1,145 +1,216 @@
 import { Header } from "../components/Header";
 import { MapSection } from "../components/MapSection";
+import { ContactForm } from "../components/ContactForm";
 import { Footer } from "../components/Footer";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import {
+  MapPinIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  BuildingOfficeIcon,
+} from "@heroicons/react/24/outline";
 
 export function ContactsPage() {
-  useDocumentTitle("Грузовой Двор‑НТ — Контакты")
+  useDocumentTitle("Грузовой Двор‑НТ — Контакты");
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
       <main>
-        {/* Page Hero */}
-        <section className="py-12 bg-white border-b-2 border-gray-300">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="h-10 bg-gray-300 max-w-xs md:max-w-sm mb-4 flex items-center">Контакты</div>
-            <div className="flex gap-2 items-center">
-              <div className="h-3 bg-gray-200 w-20">Главная</div>
-              <span className="text-gray-400">/</span>
-              <div className="h-3 bg-gray-200 w-24">Контакты</div>
-            </div>
+        {/* Hero Section */}
+        <section className="bg-white border-b border-gray-200 py-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
+              Контакты
+            </h1>
+            <nav className="mt-3 flex items-center gap-2 text-sm text-gray-600">
+              <a href="/" className="hover:text-red-600">
+                Главная
+              </a>
+              <span>/</span>
+              <span>Контакты</span>
+            </nav>
           </div>
         </section>
 
-        {/* Contact Info Grid */}
-        <section className="py-16 bg-gray-50 border-b-2 border-gray-300">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {/* Address */}
-              <div className="border-2 border-gray-400 p-8 bg-white">
-                <div className="w-16 h-16 border-2 border-gray-400 mx-auto mb-6"></div>
-                <div className="h-5 bg-gray-300 w-32 mx-auto mb-4"></div>
-                <div className="h-3 bg-gray-200 w-full mb-2"></div>
-                <div className="h-3 bg-gray-200 w-5/6 mx-auto mb-2"></div>
-                <div className="h-3 bg-gray-200 w-4/5 mx-auto"></div>
+        {/* Contact Info Cards */}
+        <section className="py-16 bg-gray-50 border-b border-gray-200">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Адрес */}
+              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600 mb-4">
+                  <MapPinIcon className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  Адрес
+                </h3>
+                <p className="text-sm text-gray-700 mb-3">
+                  Свердловская обл., г. Нижний Тагил, ул. Трикотажников, д. 7
+                </p>
+                <p className="text-xs text-gray-500">
+                  ОГРН 1156623000753
+                </p>
               </div>
 
-              {/* Phone */}
-              <div className="border-2 border-gray-400 p-8 bg-white">
-                <div className="w-16 h-16 border-2 border-gray-400 mx-auto mb-6"></div>
-                <div className="h-5 bg-gray-300 w-32 mx-auto mb-4"></div>
-                <div className="h-4 bg-gray-200 w-40 mx-auto mb-3"></div>
-                <div className="h-4 bg-gray-200 w-36 mx-auto"></div>
+              {/* Телефоны */}
+              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600 mb-4">
+                  <PhoneIcon className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  Телефоны
+                </h3>
+                <div className="space-y-2">
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">Сервис:</span>{" "}
+                    <a href="tel:+79502006564" className="text-red-600 hover:underline">
+                      +7 950 200-65-64
+                    </a>
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">Запчасти:</span>{" "}
+                    <a href="tel:+79502006172" className="text-red-600 hover:underline">
+                      +7 950 200-61-72
+                    </a>
+                  </p>
+                </div>
               </div>
 
               {/* Email */}
-              <div className="border-2 border-gray-400 p-8 bg-white">
-                <div className="w-16 h-16 border-2 border-gray-400 mx-auto mb-6"></div>
-                <div className="h-5 bg-gray-300 w-32 mx-auto mb-4"></div>
-                <div className="h-4 bg-gray-200 w-48 mx-auto mb-3"></div>
-              </div>
-            </div>
-
-            {/* Working Hours */}
-            <div className="border-2 border-gray-400 p-4 md:p-8 bg-white">
-              <div className="h-6 bg-gray-300 w-48 mb-6"></div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <div className="flex justify-between mb-3 pb-3 border-b border-gray-300">
-                    <div className="h-4 bg-gray-200 w-32"></div>
-                    <div className="h-4 bg-gray-200 w-40"></div>
-                  </div>
-                  <div className="flex justify-between mb-3 pb-3 border-b border-gray-300">
-                    <div className="h-4 bg-gray-200 w-32"></div>
-                    <div className="h-4 bg-gray-200 w-40"></div>
-                  </div>
-                  <div className="flex justify-between mb-3 pb-3 border-b border-gray-300">
-                    <div className="h-4 bg-gray-200 w-32"></div>
-                    <div className="h-4 bg-gray-200 w-40"></div>
-                  </div>
+              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600 mb-4">
+                  <EnvelopeIcon className="h-6 w-6" />
                 </div>
-                <div>
-                  <div className="flex justify-between mb-3 pb-3 border-b border-gray-300">
-                    <div className="h-4 bg-gray-200 w-32"></div>
-                    <div className="h-4 bg-gray-200 w-40"></div>
-                  </div>
-                  <div className="flex justify-between mb-3 pb-3 border-b border-gray-300">
-                    <div className="h-4 bg-gray-200 w-32"></div>
-                    <div className="h-4 bg-gray-200 w-40"></div>
-                  </div>
-                  <div className="flex justify-between mb-3 pb-3 border-b border-gray-300">
-                    <div className="h-4 bg-gray-200 w-32"></div>
-                    <div className="h-4 bg-gray-200 w-40"></div>
-                  </div>
-                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  Email
+                </h3>
+                <a
+                  href="mailto:vsz@transfer01.ru"
+                  className="text-sm text-red-600 hover:underline break-all"
+                >
+                  vsz@transfer01.ru
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Contact Form Section */}
-        <section className="py-16 bg-white border-b-2 border-gray-300">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <div className="h-8 bg-gray-300 max-w-sm md:max-w-md mx-auto mb-4"></div>
-              <div className="h-4 bg-gray-200 max-w-xs md:max-w-lg mx-auto"></div>
-            </div>
-
-            <div className="border-2 border-gray-400 p-4 md:p-8 bg-gray-50">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                {/* Name field */}
-                <div>
-                  <div className="h-4 bg-gray-200 w-24 mb-2"></div>
-                  <div className="h-12 border-2 border-gray-400 bg-white"></div>
-                </div>
-
-                {/* Phone field */}
-                <div>
-                  <div className="h-4 bg-gray-200 w-24 mb-2"></div>
-                  <div className="h-12 border-2 border-gray-400 bg-white"></div>
-                </div>
+        {/* Working Hours Section */}
+        <section className="py-16 bg-white border-b border-gray-200">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
+              Режим работы
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Понедельник — Пятница
+                </h3>
+                <p className="text-base text-gray-700">09:00 — 21:00</p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                {/* Email field */}
-                <div>
-                  <div className="h-4 bg-gray-200 w-24 mb-2"></div>
-                  <div className="h-12 border-2 border-gray-400 bg-white"></div>
-                </div>
-
-                {/* Subject field */}
-                <div>
-                  <div className="h-4 bg-gray-200 w-24 mb-2"></div>
-                  <div className="h-12 border-2 border-gray-400 bg-white"></div>
-                </div>
+              <div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Суббота — Воскресенье
+                </h3>
+                <p className="text-base text-gray-700">09:00 — 21:00</p>
               </div>
-
-              {/* Message field */}
-              <div className="mb-6">
-                <div className="h-4 bg-gray-200 w-24 mb-2"></div>
-                <div className="h-32 border-2 border-gray-400 bg-white"></div>
-              </div>
-
-              {/* Submit button */}
-              <button className="px-8 py-3 border-2 border-gray-600 bg-gray-800 text-white">
-                Отправить сообщение
-              </button>
             </div>
           </div>
         </section>
+
+        {/* Company Info Section */}
+        <section className="py-16 bg-gray-50 border-b border-gray-200">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
+              Реквизиты компании
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Левая колонка */}
+              <div className="rounded-lg border border-gray-200 bg-white p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <BuildingOfficeIcon className="h-5 w-5 text-red-600" />
+                  Юридические данные
+                </h3>
+                <dl className="space-y-3 text-sm">
+                  <div>
+                    <dt className="font-semibold text-gray-900">ОГРН:</dt>
+                    <dd className="text-gray-700">1156623000753</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-900">ИНН:</dt>
+                    <dd className="text-gray-700">6623108028</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-900">КПП:</dt>
+                    <dd className="text-gray-700">662301001</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-900">ОКВЭД:</dt>
+                    <dd className="text-gray-700">45.20</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-900">ОКПО:</dt>
+                    <dd className="text-gray-700">48588994</dd>
+                  </div>
+                </dl>
+              </div>
+
+              {/* Правая колонка */}
+              <div className="rounded-lg border border-gray-200 bg-white p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Банковские реквизиты
+                </h3>
+                <dl className="space-y-3 text-sm">
+                  <div>
+                    <dt className="font-semibold text-gray-900">Расчётный счёт:</dt>
+                    <dd className="text-gray-700 font-mono">40702810338240000539</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-900">БИК:</dt>
+                    <dd className="text-gray-700 font-mono">046577964</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-900">Кор. счёт:</dt>
+                    <dd className="text-gray-700 font-mono">30101810100000000964</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-900">Банк:</dt>
+                    <dd className="text-gray-700">
+                      Филиал "Екатеринбургский" АО "АЛЬФА-БАНК" г. Екатеринбург
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            {/* Доп инфо */}
+            <div className="mt-8 rounded-lg border border-gray-200 bg-white p-6">
+              <dl className="space-y-3 text-sm">
+                <div>
+                  <dt className="font-semibold text-gray-900">Налоговый режим:</dt>
+                  <dd className="text-gray-700">
+                    Упрощённая система налогообложения (УСН) — не является плательщиком НДС
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-gray-900">Директор:</dt>
+                  <dd className="text-gray-700">
+                    Сунцов Владислав Викторович (действует на основании Устава)
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Form */}
+        <ContactForm />
       </main>
+
+      {/* Map */}
       <MapSection />
+
       <Footer />
     </div>
   );
