@@ -2,179 +2,187 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
-import { BuildingOfficeIcon } from "@heroicons/react/24/outline";
+import { BuildingOfficeIcon, CheckCircleIcon, SparklesIcon, UsersIcon } from "@heroicons/react/24/outline";
+import heroImage from "../assets/images/hero-image.png";
+import aboutWorkshop from "../assets/images/about-workshop.jpg";
+
 
 export function AboutPage() {
-  useDocumentTitle("Грузовой Двор‑НТ — О нашей компании")
+  useDocumentTitle("Грузовой Двор‑НТ — О нашей компании");
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       <Header />
-      {/* Page Header */}
-      <section className="py-12 bg-white border-b-2 border-gray-300">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="h-10 bg-gray-300 max-w-xs md:max-w-sm mb-4 flex items-center">
-            О нашей компании
-          </div>
-          <div className="flex gap-2 items-center">
-            <div className="h-3 bg-gray-200 w-20">Главная</div>
-            <span className="text-gray-400">/</span>
-            <div className="h-3 bg-gray-200 max-w-[12rem]">
-              О нашей компании
-            </div>
-          </div>
+
+      <section className="bg-white border-b border-gray-200 py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">О нашей компании</h1>
+          <nav className="mt-3 flex items-center gap-2 text-sm text-gray-600">
+            <a href="/" className="hover:text-red-600">Главная</a>
+            <span>/</span>
+            <span>О компании</span>
+          </nav>
         </div>
       </section>
 
-      {/* About Content */}
-      <section className="py-16 border-b-2 border-gray-300">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            {/* Text content */}
-            <div className="space-y-4">
-              <div className="h-6 bg-gray-300 w-3/4 mb-6"></div>
-              <div className="space-y-2">
-                <div className="h-3 bg-gray-200 w-full"></div>
-                <div className="h-3 bg-gray-200 w-full"></div>
-                <div className="h-3 bg-gray-200 w-full"></div>
-                <div className="h-3 bg-gray-200 w-5/6"></div>
-              </div>
-              <div className="space-y-2 pt-4">
-                <div className="h-3 bg-gray-200 w-full"></div>
-                <div className="h-3 bg-gray-200 w-full"></div>
-                <div className="h-3 bg-gray-200 w-4/5"></div>
-              </div>
-            </div>
-
-            {/* Image placeholder */}
-            <div className="border-2 border-gray-400 h-80 flex items-center justify-center overflow-hidden">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjB0ZWFtfGVufDF8fHx8MTc2NDE5NjcxM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Команда"
-                className="w-full h-full object-cover grayscale"
-              />
-            </div>
-          </div>
-
-          {/* Second row */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            {/* Image placeholder */}
-            <div className="border-2 border-gray-400 h-80 flex items-center justify-center overflow-hidden lg:order-1 order-2">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2V8ZW58MXx8fHwxNzY0MTgzNDM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Офис"
-                className="w-full h-full object-cover grayscale"
-              />
-            </div>
-
-            {/* Text content */}
-            <div className="space-y-4 lg:order-2 order-1">
-              <div className="h-6 bg-gray-300 w-3/4 mb-6"></div>
-              <div className="space-y-2">
-                <div className="h-3 bg-gray-200 w-full"></div>
-                <div className="h-3 bg-gray-200 w-full"></div>
-                <div className="h-3 bg-gray-200 w-full"></div>
-                <div className="h-3 bg-gray-200 w-4/5"></div>
-              </div>
-              <div className="space-y-2 pt-4">
-                <div className="h-3 bg-gray-200 w-full"></div>
-                <div className="h-3 bg-gray-200 w-full"></div>
-                <div className="h-3 bg-gray-200 w-5/6"></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Third image - full width */}
-          <div className="border-2 border-gray-400 h-96 flex items-center justify-center overflow-hidden">
-            <ImageWithFallback
-              src="https://images.unsplash.com/photo-1576073460124-e073bb8d87f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NjQyMTkyMjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-              alt="Рабочее пространство"
-              className="w-full h-full object-cover grayscale"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Company Info Section */}
       <section className="py-16 bg-gray-50 border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
-            Реквизиты компании
-          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">История компании</h2>
+              <div className="space-y-4 text-gray-700">
+                <p>«Грузовой Двор‑НТ» начал работу как небольшой техцентр, ориентированный на ремонт и обслуживание грузовых автомобилей в Нижнем Тагиле. За годы работы мы выросли в надёжного партнёра для владельцев коммерческого транспорта.</p>
+                <p>Сегодня мы располагаем современными боксами для обслуживания длинномерных грузовиков, профессиональным оборудованием и командой опытных специалистов, которые разбираются в европейских и отечественных марках.</p>
+                <p>Наша миссия — помогать владельцам грузовой техники сокращать простой машин и держать их в отличном рабочем состоянии.</p>
+              </div>
+            </div>
+            <div className="rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+              <ImageWithFallback
+                src={aboutWorkshop}
+                alt="Команда сервиса"
+                className="w-full h-80 object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-10 text-center">Наши принципы работы</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600 mb-4">
+                <CheckCircleIcon className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Честность и прозрачность</h3>
+              <p className="text-gray-700 text-sm">Говорим о проблемах напрямую, объясняем, что нужно делать сейчас, а что позже. Без скрытых доплат.</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600 mb-4">
+                <SparklesIcon className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Качество и ответственность</h3>
+              <p className="text-gray-700 text-sm">Используем качественные запчасти, даём гарантию на работы. Отвечаем за результат.</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600 mb-4">
+                <UsersIcon className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Понимание вашего бизнеса</h3>
+              <p className="text-gray-700 text-sm">Знаем, что простой машины — это потери. Планируем работы вокруг вашего графика рейсов.</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600 mb-4">
+                <BuildingOfficeIcon className="h-6 w-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Постоянство и развитие</h3>
+              <p className="text-gray-700 text-sm">Мы здесь надолго. Постоянно совершенствуем оборудование и знания специалистов.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50 border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-center">
+              Наша команда
+            </h2>
+            <p className="text-center text-gray-700 mb-10">
+              Опытные специалисты, которые разбираются в грузовиках и готовы помочь вашему бизнесу
+            </p>
+
+            <div className="space-y-6 mb-10">
+              <p className="text-gray-700">
+                В сервисе работают опытные механики с многолетним опытом ремонта европейских и отечественных грузовиков. Каждый из них прошёл специальную подготовку и постоянно развивает свои навыки.
+              </p>
+              <p className="text-gray-700">
+                Мы постоянно повышаем квалификацию и изучаем новые технологии. Это позволяет быстро разбираться в любых проблемах и предложить оптимальное решение.
+              </p>
+            </div>
+
+            {/* Компетенции команды */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="rounded-lg border border-gray-200 bg-white p-4">
+                <h3 className="font-semibold text-gray-900 mb-2">Европейские грузовики</h3>
+                <p className="text-sm text-gray-600">Volvo, Scania, DAF, MAN, Mercedes</p>
+              </div>
+              <div className="rounded-lg border border-gray-200 bg-white p-4">
+                <h3 className="font-semibold text-gray-900 mb-2">Отечественная техника</h3>
+                <p className="text-sm text-gray-600">КамАЗ, МАЗ, УРАЛ, ГАЗ</p>
+              </div>
+              <div className="rounded-lg border border-gray-200 bg-white p-4">
+                <h3 className="font-semibold text-gray-900 mb-2">Специализация</h3>
+                <p className="text-sm text-gray-600">Двигатели, КПП, мосты, ходовая часть</p>
+              </div>
+              <div className="rounded-lg border border-gray-200 bg-white p-4">
+                <h3 className="font-semibold text-gray-900 mb-2">Диагностика</h3>
+                <p className="text-sm text-gray-600">Компьютерная диагностика, техническое освидетельствование</p>
+              </div>
+            </div>
+
+            <p className="text-center text-gray-700 mt-10">
+              Каждый специалист относится к работе ответственно и понимает, что их работа важна для вашего бизнеса.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      <section className="py-16 bg-white border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Современное оснащение</h2>
+              <div className="space-y-4 text-gray-700">
+                <p>На нашей мастерской установлено профессиональное оборудование для диагностики и ремонта грузовиков.</p>
+                <p>У нас есть посты для длинномерных автомобилей, подъёмники, стенды для проверки и диагностические сканеры.</p>
+                <p>Все инструменты регулярно проходят техническое обслуживание, чтобы обеспечивать высокое качество работ.</p>
+              </div>
+            </div>
+            <div className="rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+              <ImageWithFallback
+                src={heroImage}
+                alt="Мастерская"
+                className="w-full h-80 object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50 border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Реквизиты компании</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Левая колонка */}
             <div className="rounded-lg border border-gray-200 bg-white p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <BuildingOfficeIcon className="h-5 w-5 text-red-600" />
                 Юридические данные
               </h3>
               <dl className="space-y-3 text-sm">
-                <div>
-                  <dt className="font-semibold text-gray-900">ОГРН:</dt>
-                  <dd className="text-gray-700">1156623000753</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-gray-900">ИНН:</dt>
-                  <dd className="text-gray-700">6623108028</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-gray-900">КПП:</dt>
-                  <dd className="text-gray-700">662301001</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-gray-900">ОКВЭД:</dt>
-                  <dd className="text-gray-700">45.20</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-gray-900">ОКПО:</dt>
-                  <dd className="text-gray-700">48588994</dd>
-                </div>
+                <div><dt className="font-semibold text-gray-900">ОГРН:</dt><dd className="text-gray-700">1156623000753</dd></div>
+                <div><dt className="font-semibold text-gray-900">ИНН:</dt><dd className="text-gray-700">6623108028</dd></div>
+                <div><dt className="font-semibold text-gray-900">КПП:</dt><dd className="text-gray-700">662301001</dd></div>
+                <div><dt className="font-semibold text-gray-900">ОКВЭД:</dt><dd className="text-gray-700">45.20</dd></div>
+                <div><dt className="font-semibold text-gray-900">ОКПО:</dt><dd className="text-gray-700">48588994</dd></div>
               </dl>
             </div>
-
-            {/* Правая колонка */}
             <div className="rounded-lg border border-gray-200 bg-white p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Банковские реквизиты
-              </h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Банковские реквизиты</h3>
               <dl className="space-y-3 text-sm">
-                <div>
-                  <dt className="font-semibold text-gray-900">Расчётный счёт:</dt>
-                  <dd className="text-gray-700 font-mono">40702810338240000539</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-gray-900">БИК:</dt>
-                  <dd className="text-gray-700 font-mono">046577964</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-gray-900">Кор. счёт:</dt>
-                  <dd className="text-gray-700 font-mono">30101810100000000964</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-gray-900">Банк:</dt>
-                  <dd className="text-gray-700">
-                    Филиал "Екатеринбургский" АО "АЛЬФА-БАНК" г. Екатеринбург
-                  </dd>
-                </div>
+                <div><dt className="font-semibold text-gray-900">Расчётный счёт:</dt><dd className="text-gray-700 font-mono text-xs">40702810338240000539</dd></div>
+                <div><dt className="font-semibold text-gray-900">БИК:</dt><dd className="text-gray-700 font-mono">046577964</dd></div>
+                <div><dt className="font-semibold text-gray-900">Кор. счёт:</dt><dd className="text-gray-700 font-mono">30101810100000000964</dd></div>
+                <div><dt className="font-semibold text-gray-900">Банк:</dt><dd className="text-gray-700">Филиал "Екатеринбургский" АО "АЛЬФА-БАНК" г. Екатеринбург</dd></div>
               </dl>
             </div>
           </div>
-
-          {/* Доп инфо */}
           <div className="mt-8 rounded-lg border border-gray-200 bg-white p-6">
             <dl className="space-y-3 text-sm">
-              <div>
-                <dt className="font-semibold text-gray-900">Налоговый режим:</dt>
-                <dd className="text-gray-700">
-                  Упрощённая система налогообложения (УСН) — не является плательщиком НДС
-                </dd>
-              </div>
-              <div>
-                <dt className="font-semibold text-gray-900">Директор:</dt>
-                <dd className="text-gray-700">
-                  Сунцов Владислав Викторович (действует на основании Устава)
-                </dd>
-              </div>
+              <div><dt className="font-semibold text-gray-900">Налоговый режим:</dt><dd className="text-gray-700">Упрощённая система налогообложения (УСН) — не является плательщиком НДС</dd></div>
+              <div><dt className="font-semibold text-gray-900">Директор:</dt><dd className="text-gray-700">Сунцов Владислав Викторович (действует на основании Устава)</dd></div>
             </dl>
           </div>
         </div>
