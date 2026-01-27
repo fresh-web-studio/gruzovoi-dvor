@@ -2,6 +2,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { BuildingOfficeIcon } from "@heroicons/react/24/outline";
 
 export function AboutPage() {
   useDocumentTitle("Грузовой Двор‑НТ — О нашей компании")
@@ -94,77 +95,87 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Company Details Section */}
-      <section className="py-16 border-b-2 border-gray-300">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="mb-8">
-            <div className="h-8 bg-gray-300 max-w-xs md:max-w-sm mx-auto mb-4 flex items-center justify-center">
-              Реквизиты компании
+      {/* Company Info Section */}
+      <section className="py-16 bg-gray-50 border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
+            Реквизиты компании
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Левая колонка */}
+            <div className="rounded-lg border border-gray-200 bg-white p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <BuildingOfficeIcon className="h-5 w-5 text-red-600" />
+                Юридические данные
+              </h3>
+              <dl className="space-y-3 text-sm">
+                <div>
+                  <dt className="font-semibold text-gray-900">ОГРН:</dt>
+                  <dd className="text-gray-700">1156623000753</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-gray-900">ИНН:</dt>
+                  <dd className="text-gray-700">6623108028</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-gray-900">КПП:</dt>
+                  <dd className="text-gray-700">662301001</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-gray-900">ОКВЭД:</dt>
+                  <dd className="text-gray-700">45.20</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-gray-900">ОКПО:</dt>
+                  <dd className="text-gray-700">48588994</dd>
+                </div>
+              </dl>
+            </div>
+
+            {/* Правая колонка */}
+            <div className="rounded-lg border border-gray-200 bg-white p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Банковские реквизиты
+              </h3>
+              <dl className="space-y-3 text-sm">
+                <div>
+                  <dt className="font-semibold text-gray-900">Расчётный счёт:</dt>
+                  <dd className="text-gray-700 font-mono">40702810338240000539</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-gray-900">БИК:</dt>
+                  <dd className="text-gray-700 font-mono">046577964</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-gray-900">Кор. счёт:</dt>
+                  <dd className="text-gray-700 font-mono">30101810100000000964</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-gray-900">Банк:</dt>
+                  <dd className="text-gray-700">
+                    Филиал "Екатеринбургский" АО "АЛЬФА-БАНК" г. Екатеринбург
+                  </dd>
+                </div>
+              </dl>
             </div>
           </div>
 
-          <div className="border-2 border-gray-400 p-4 md:p-8 bg-gray-50">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Left column */}
-              <div className="space-y-4">
-                {/* Юридическое название */}
-                <div className="border-b border-gray-300 pb-4">
-                  <div className="h-4 bg-gray-300 w-48 mb-2 flex items-center pl-2">
-                    Юридическое название:
-                  </div>
-                  <div className="h-3 bg-gray-200 w-full"></div>
-                </div>
-
-                {/* Адрес */}
-                <div className="border-b border-gray-300 pb-4">
-                  <div className="h-4 bg-gray-300 w-32 mb-2 flex items-center pl-2">
-                    Юридический адрес:
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-3 bg-gray-200 w-full"></div>
-                    <div className="h-3 bg-gray-200 w-3/4"></div>
-                  </div>
-                </div>
-
-                {/* ОГРН */}
-                <div className="border-b border-gray-300 pb-4">
-                  <div className="h-4 bg-gray-300 w-24 mb-2 flex items-center pl-2">
-                    ОГРН:
-                  </div>
-                  <div className="h-3 bg-gray-200 w-64"></div>
-                </div>
+          {/* Доп инфо */}
+          <div className="mt-8 rounded-lg border border-gray-200 bg-white p-6">
+            <dl className="space-y-3 text-sm">
+              <div>
+                <dt className="font-semibold text-gray-900">Налоговый режим:</dt>
+                <dd className="text-gray-700">
+                  Упрощённая система налогообложения (УСН) — не является плательщиком НДС
+                </dd>
               </div>
-
-              {/* Right column */}
-              <div className="space-y-4">
-                {/* ИНН */}
-                <div className="border-b border-gray-300 pb-4">
-                  <div className="h-4 bg-gray-300 w-16 mb-2 flex items-center pl-2">
-                    ИНН:
-                  </div>
-                  <div className="h-3 bg-gray-200 w-48"></div>
-                </div>
-
-                {/* КПП */}
-                <div className="border-b border-gray-300 pb-4">
-                  <div className="h-4 bg-gray-300 w-16 mb-2 flex items-center pl-2">
-                    КПП:
-                  </div>
-                  <div className="h-3 bg-gray-200 w-48"></div>
-                </div>
-
-                {/* Банковские реквизиты */}
-                <div className="border-b border-gray-300 pb-4">
-                  <div className="h-4 bg-gray-300 w-48 mb-2 flex items-center pl-2">
-                    Банковские реквизиты:
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-3 bg-gray-200 w-full"></div>
-                    <div className="h-3 bg-gray-200 w-5/6"></div>
-                  </div>
-                </div>
+              <div>
+                <dt className="font-semibold text-gray-900">Директор:</dt>
+                <dd className="text-gray-700">
+                  Сунцов Владислав Викторович (действует на основании Устава)
+                </dd>
               </div>
-            </div>
+            </dl>
           </div>
         </div>
       </section>

@@ -7,7 +7,6 @@ import {
   MapPinIcon,
   PhoneIcon,
   EnvelopeIcon,
-  BuildingOfficeIcon,
 } from "@heroicons/react/24/outline";
 
 export function ContactsPage() {
@@ -119,90 +118,7 @@ export function ContactsPage() {
           </div>
         </section>
 
-        {/* Company Info Section */}
-        <section className="py-16 bg-gray-50 border-b border-gray-200">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
-              Реквизиты компании
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Левая колонка */}
-              <div className="rounded-lg border border-gray-200 bg-white p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <BuildingOfficeIcon className="h-5 w-5 text-red-600" />
-                  Юридические данные
-                </h3>
-                <dl className="space-y-3 text-sm">
-                  <div>
-                    <dt className="font-semibold text-gray-900">ОГРН:</dt>
-                    <dd className="text-gray-700">1156623000753</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-gray-900">ИНН:</dt>
-                    <dd className="text-gray-700">6623108028</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-gray-900">КПП:</dt>
-                    <dd className="text-gray-700">662301001</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-gray-900">ОКВЭД:</dt>
-                    <dd className="text-gray-700">45.20</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-gray-900">ОКПО:</dt>
-                    <dd className="text-gray-700">48588994</dd>
-                  </div>
-                </dl>
-              </div>
 
-              {/* Правая колонка */}
-              <div className="rounded-lg border border-gray-200 bg-white p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Банковские реквизиты
-                </h3>
-                <dl className="space-y-3 text-sm">
-                  <div>
-                    <dt className="font-semibold text-gray-900">Расчётный счёт:</dt>
-                    <dd className="text-gray-700 font-mono">40702810338240000539</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-gray-900">БИК:</dt>
-                    <dd className="text-gray-700 font-mono">046577964</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-gray-900">Кор. счёт:</dt>
-                    <dd className="text-gray-700 font-mono">30101810100000000964</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-gray-900">Банк:</dt>
-                    <dd className="text-gray-700">
-                      Филиал "Екатеринбургский" АО "АЛЬФА-БАНК" г. Екатеринбург
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </div>
-
-            {/* Доп инфо */}
-            <div className="mt-8 rounded-lg border border-gray-200 bg-white p-6">
-              <dl className="space-y-3 text-sm">
-                <div>
-                  <dt className="font-semibold text-gray-900">Налоговый режим:</dt>
-                  <dd className="text-gray-700">
-                    Упрощённая система налогообложения (УСН) — не является плательщиком НДС
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-gray-900">Директор:</dt>
-                  <dd className="text-gray-700">
-                    Сунцов Владислав Викторович (действует на основании Устава)
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </section>
 
         {/* Contact Form */}
         <ContactForm />
