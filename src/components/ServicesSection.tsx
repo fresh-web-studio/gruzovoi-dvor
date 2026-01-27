@@ -1,4 +1,3 @@
-// src/components/ServicesSection.tsx
 import { Link } from "react-router-dom";
 import { ServiceIcon } from "./ServiceIcons";
 import type { ServiceIconKey } from "./ServiceIcons";
@@ -10,7 +9,66 @@ interface Service {
   shortDescription: string;
 }
 
-const ALL_SERVICES: Service[] = [
+// Услуги ДЛЯ ГЛАВНОЙ СТРАНИЦЫ
+export const HOME_SERVICES: Service[] = [
+  {
+    name: "Ремонт двигателей",
+    price: "от 1 000 ₽",
+    icon: "engineOil",
+    shortDescription: "Полная диагностика, ремонт и восстановление двигателей грузовиков.",
+  },
+  {
+    name: "Ремонт КПП",
+    price: "от 1 000 ₽",
+    icon: "gearboxOil",
+    shortDescription: "Капитальный ремонт механических и автоматических коробок передач.",
+  },
+  {
+    name: "Ремонт КПП фирмы ZF",
+    price: "от 1 000 ₽",
+    icon: "gearboxRemove",
+    shortDescription: "Специализированный ремонт коробок передач ZF европейских грузовиков.",
+  },
+  {
+    name: "Ремонт мостов",
+    price: "от 1 000 ₽",
+    icon: "axleOil",
+    shortDescription: "Восстановление передних и задних мостов, замена компонентов.",
+  },
+  {
+    name: "Ремонт ходовой части",
+    price: "от 1 000 ₽",
+    icon: "frontLeafSpring",
+    shortDescription: "Работы по подвеске, амортизаторам, рессорам и стабилизаторам.",
+  },
+  {
+    name: "Ремонт фургонов",
+    price: "от 1 000 ₽",
+    icon: "clutch",
+    shortDescription: "Ремонт и обслуживание кузовов, рефрижераторных установок и дверей.",
+  },
+  {
+    name: "Сварочные работы",
+    price: "от 1 000 ₽",
+    icon: "headGasket",
+    shortDescription: "Аргонодуговая сварка, кузовной ремонт и восстановление конструкций.",
+  },
+  {
+    name: "Ремонт механической топливной аппаратуры",
+    price: "от 1 000 ₽",
+    icon: "fuelFilter",
+    shortDescription: "Диагностика и ремонт топливных систем дизельных двигателей.",
+  },
+  {
+    name: "Ремонт пневматической тормозной системы",
+    price: "от 1 000 ₽",
+    icon: "brakeAdjust",
+    shortDescription: "Обслуживание и ремонт пневматических тормозов и компрессоров.",
+  },
+];
+
+// ПОЛНАЯ БАЗА УСЛУГ (для страницы Услуги)
+export const ALL_SERVICES: Service[] = [
   // Масла, фильтры, жидкости
   {
     name: "Замена масла и фильтра ДВС",
@@ -60,16 +118,12 @@ const ALL_SERVICES: Service[] = [
     icon: "belt",
     shortDescription: "Замена приводных ремней для надёжной работы генератора и навесного.",
   },
-
-  // Смазка
   {
     name: "Шприцевание автомобиля (одна точка смазки)",
     price: "от 75 ₽",
     icon: "greasing",
     shortDescription: "Смазка узлов шасси для снижения износа и устранения скрипов.",
   },
-
-  // Тормоза
   {
     name: "Регулировка тормозов",
     price: "от 1 500 ₽",
@@ -100,8 +154,6 @@ const ALL_SERVICES: Service[] = [
     icon: "brakeLining",
     shortDescription: "Замена накладок барабанных тормозов, стоимость зависит от модели.",
   },
-
-  // КПП, трансмиссия, кардан
   {
     name: "Снятие/Установка КПП",
     price: "от 6 000 ₽",
@@ -132,8 +184,6 @@ const ALL_SERVICES: Service[] = [
     icon: "pinionSeal",
     shortDescription: "Устранение течи масла из редуктора заднего моста.",
   },
-
-  // Подвеска
   {
     name: "Замена шкворней",
     price: "от 10 000 ₽",
@@ -152,8 +202,6 @@ const ALL_SERVICES: Service[] = [
     icon: "rearLeafSpring",
     shortDescription: "Обновление задней рессоры под рабочую нагрузку и стабильность хода.",
   },
-
-  // Двигатель, ГБЦ, клапаны
   {
     name: "Замена прокладки ГБЦ",
     price: "от 12 000 ₽",
@@ -172,8 +220,6 @@ const ALL_SERVICES: Service[] = [
     icon: "valveAdjust",
     shortDescription: "Регулировка тепловых зазоров и протяжка крепежа ГБЦ и крышки.",
   },
-
-  // Навесное
   {
     name: "Замена вакуумного насоса",
     price: "от 2 200 ₽",
@@ -192,8 +238,6 @@ const ALL_SERVICES: Service[] = [
     icon: "alternator",
     shortDescription: "Снятие и установка генератора для обслуживания или замены.",
   },
-
-  // ТНВД и турбина
   {
     name: "Снятие/Установка ТНВД",
     price: "от 7 500 ₽",
@@ -208,8 +252,6 @@ const ALL_SERVICES: Service[] = [
   },
 ];
 
-const HOME_SERVICES = ALL_SERVICES.slice(0, 6);
-
 export function ServicesSection() {
   return (
     <section className="py-16 border-b border-gray-300 bg-muted/40">
@@ -221,7 +263,7 @@ export function ServicesSection() {
               Услуги нашего сервиса
             </h2>
             <p className="mt-2 text-sm md:text-base text-muted-foreground">
-              Основные работы по техническому обслуживанию и ремонту.
+              Основные направления ремонта и обслуживания грузовой техники.
             </p>
           </div>
 
@@ -240,7 +282,7 @@ export function ServicesSection() {
           </Link>
         </div>
 
-        {/* Сетка из 6 услуг */}
+        {/* Сетка услуг для главной */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {HOME_SERVICES.map((service) => (
             <article
@@ -277,5 +319,3 @@ export function ServicesSection() {
     </section>
   );
 }
-
-export { ALL_SERVICES };
