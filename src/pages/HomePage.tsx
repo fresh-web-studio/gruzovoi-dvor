@@ -6,7 +6,7 @@ import { ExpectationSection } from "../components/ExpectationSection";
 import { LogoSection } from "../components/LogoSection";
 import { FeaturesSection } from "../components/FeaturesSection";
 //import { WorkSection } from "../components/WorkSection";
-//import { ReviewsSection } from "../components/ReviewsSection";
+import { ReviewsSection } from "../components/ReviewsSection";
 import { StatisticsSection } from "../components/StatisticsSection";
 import { ContactForm } from "../components/ContactForm";
 import { FAQSection } from "../components/FAQSection";
@@ -28,7 +28,7 @@ export function HomePage() {
         <LogoSection />
         <FeaturesSection />
         {/* <WorkSection /> */}
-        {/* <ReviewsSection /> */}
+        <ReviewsSection />
         <StatisticsSection />
         <ContactForm />
         <FAQSection />
