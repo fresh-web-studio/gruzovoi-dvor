@@ -4,9 +4,12 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./styles/globals.css";
 
+// Определи basename в зависимости от окружения
+const basename = import.meta.env.VITE_BASE_URL || '/';
+
 createRoot(document.getElementById("root") as HTMLElement).render(
   <StrictMode>
-    <BrowserRouter basename="/gruzovoi-dvor">
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </StrictMode>

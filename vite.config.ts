@@ -8,8 +8,8 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/gruzovoi-dvor/', // для GitHub Pages
+  base: process.env.VITE_BASE_URL || '/',
   build: {
-    outDir: 'docs' // вместо 'dist' или другого значения
+    outDir: process.env.VITE_BUILD_DIR || 'dist',
   }
 })
