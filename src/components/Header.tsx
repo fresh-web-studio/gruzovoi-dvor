@@ -67,7 +67,7 @@ export function Header() {
                 </svg>
               </span>
               <span className="text-sm text-muted-foreground">
-                Время работы: ежедневно, по предварительной записи
+                Время работы: Пн-Пт 09:00 - 18:00, Сб и Вс - выходной
               </span>
             </div>
 

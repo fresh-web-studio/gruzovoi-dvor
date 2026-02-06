@@ -45,9 +45,9 @@ export function Footer() {
               Режим работы
             </h3>
             <p className="text-sm text-gray-300">
-              Ежедневно, без выходных
+              Пн-Пт 09:00 - 18:00,
               <br />
-              с 09:00 до 21:00
+              Сб и Вс - выходной
             </p>
 
             <h3 className="mt-5 text-sm font-semibold text-gray-100 mb-1.5">
@@ -82,7 +82,7 @@ export function Footer() {
                   href="mailto:vsz@transfer01.ru"
                   className="hover:text-white break-all"
                 >
-                  vsz@transfer01.ru
+                  vvs@transfer01.ru
                 </a>
               </p>
             </div>

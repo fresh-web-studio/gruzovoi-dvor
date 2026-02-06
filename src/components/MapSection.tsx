@@ -59,8 +59,9 @@ export function MapSection() {
             {/* Режим работы и телефоны */}
             <div className="mb-3 space-y-1.5 text-sm text-gray-800">
               <p>
-                <span className="font-semibold">Режим работы:</span> ежедневно,
-                с 09:00 до 21:00
+                <span className="font-semibold">Режим работы:</span> <br />Пн-Пт 09:00 - 18:00,
+                <br />
+                Сб и Вс - выходной
               </p>
               <p>
                 <span className="font-semibold">Сервис:</span>{" "}
