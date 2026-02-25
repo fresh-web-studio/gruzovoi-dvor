@@ -1,4 +1,5 @@
 import aboutWorkshop from "../assets/images/about-workshop.jpg";
+import { Link } from "react-router-dom";
 
 export function AboutSection() {
   return (
@@ -41,12 +42,20 @@ export function AboutSection() {
 
 
             {/* Кнопка под блоками */}
-            <button
-              type="button"
-              className="mt-2 inline-flex w-max items-center justify-center rounded-md bg-[#c92424] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#b02020] transition-colors"
+
+            <Link
+              to="/o-nas"
+              className="
+              mt-2 inline-flex w-max 
+              items-center justify-center 
+              rounded-md bg-[#c92424] 
+              px-5 py-2.5 text-sm 
+              font-medium text-white 
+              hover:bg-[#b02020] transition-colors
+            "
             >
               Узнать больше
-            </button>
+            </Link>
           </div>
         </div>
       </div>

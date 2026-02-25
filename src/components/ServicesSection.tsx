@@ -270,12 +270,12 @@ export function ServicesSection() {
           <Link
             to="/uslugi"
             className="
-              inline-flex items-center justify-center
-              px-5 py-2 rounded-md
-              border border-border
-              bg-card text-sm font-medium text-foreground
-              hover:bg-primary hover:text-white
-              transition-colors
+              mt-2 inline-flex w-max 
+              items-center justify-center 
+              rounded-md bg-[#c92424] 
+              px-5 py-2.5 text-sm 
+              font-medium text-white 
+              hover:bg-[#b02020] transition-colors
             "
           >
             Все услуги
