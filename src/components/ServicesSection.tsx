@@ -284,37 +284,54 @@ export function ServicesSection() {
 
         {/* Сетка услуг для главной */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {HOME_SERVICES.map((service) => (
-            <article
-              key={service.name}
-              className="
-                border border-border
-                rounded-xl
-                bg-card
-                p-6
-                shadow-sm
-                hover:border-primary/70 hover:shadow-md
-                transition-colors transition-shadow
-              "
-            >
-              <div className="w-16 h-16 rounded-lg border border-border mb-4 flex items-center justify-center bg-primary/5">
-                <ServiceIcon type={service.icon} />
-              </div>
+          {HOME_SERVICES.map((service) => {
+            const isEngineRepair = service.name === "Ремонт двигателей";
 
-              <h3 className="text-base md:text-lg font-semibold text-foreground mb-3">
-                {service.name}
-              </h3>
+            const card = (
+              <article
+                key={service.name}
+                className="
+          border border-border
+          rounded-xl
+          bg-card
+          p-6
+          shadow-sm
+          hover:border-primary/70 hover:shadow-md
+          transition-colors transition-shadow
+        "
+              >
+                <div className="w-16 h-16 rounded-lg border border-border mb-4 flex items-center justify-center bg-primary/5">
+                  <ServiceIcon type={service.icon} />
+                </div>
 
-              <p className="text-sm text-muted-foreground mb-4">
-                {service.shortDescription}
-              </p>
+                <h3 className="text-base md:text-lg font-semibold text-foreground mb-3">
+                  {service.name}
+                </h3>
 
-              <div className="text-sm font-semibold text-foreground">
-                {service.price}
-              </div>
-            </article>
-          ))}
+                <p className="text-sm text-muted-foreground mb-4">
+                  {service.shortDescription}
+                </p>
+
+                <div className="text-sm font-semibold text-foreground">
+                  {service.price}
+                </div>
+              </article>
+            );
+
+            return isEngineRepair ? (
+              <Link
+                to="/dvigateli"
+                key={service.name}
+                className="block hover:no-underline"
+              >
+                {card}
+              </Link>
+            ) : (
+              card
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

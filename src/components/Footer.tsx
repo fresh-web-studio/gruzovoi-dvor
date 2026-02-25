@@ -36,6 +36,9 @@ export function Footer() {
               <Link to="/kontakty" className="hover:text-white transition-colors">
                 Контакты
               </Link>
+              <Link to="/usloviya" className="hover:text-white transition-colors">
+                Условия использования
+              </Link>
             </nav>
           </div>
 

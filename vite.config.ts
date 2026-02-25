@@ -11,5 +11,15 @@ export default defineConfig({
   base: process.env.VITE_BASE_URL || '/',
   build: {
     outDir: process.env.VITE_BUILD_DIR || 'dist',
-  }
+  },
+  // ← Добавляем proxy для dev
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',  // ваш Express backend
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 })

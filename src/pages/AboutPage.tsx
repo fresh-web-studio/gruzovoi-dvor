@@ -162,6 +162,7 @@ export function AboutPage() {
                 Юридические данные
               </h3>
               <dl className="space-y-3 text-sm">
+                <div><dt className="font-semibold text-gray-900">Название:</dt><dd className="text-gray-700">ООО «АВТОДОМ ТРАНСФЕР»</dd></div>
                 <div><dt className="font-semibold text-gray-900">ОГРН:</dt><dd className="text-gray-700">1156623000753</dd></div>
                 <div><dt className="font-semibold text-gray-900">ИНН:</dt><dd className="text-gray-700">6623108028</dd></div>
                 <div><dt className="font-semibold text-gray-900">КПП:</dt><dd className="text-gray-700">662301001</dd></div>

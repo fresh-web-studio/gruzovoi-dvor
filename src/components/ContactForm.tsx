@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 type FormData = {
   name: string;
@@ -25,6 +25,33 @@ const SERVICES = [
   "Консультация специалиста",
 ];
 
+async function sendLead(
+  formType: "call" | "repair",
+  data: {
+    name: string;
+    email?: string;
+    phone: string;
+    service?: string;
+    message?: string;
+  }
+) {
+  const res = await fetch("/api/leads", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ formType, ...data }),
+  });
+
+  const json = await res.json();
+  if (!res.ok || !json.ok) {
+    throw new Error(json.error || "Ошибка отправки");
+  }
+  return json;
+}
+
+// Простая проверка email только латиница + @ + домен
+const EMAIL_REGEXP =
+  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 export function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -36,43 +63,135 @@ export function ContactForm() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] =
+    useState<"idle" | "success" | "error">("idle");
+  const [fieldError, setFieldError] = useState<{
+    email?: string;
+    phone?: string;
+  }>({});
+
+  // форматирование телефона в маску +7 (___) ___-__-__
+  const formatPhone = (value: string) => {
+    // убираем всё, кроме цифр
+    const digits = value.replace(/\D/g, "");
+
+    // берём только первые 10 цифр после 7 (7XXXXXXXXXX)
+    let numbers = digits;
+
+    if (numbers.startsWith("8")) {
+      numbers = "7" + numbers.slice(1);
+    }
+    if (!numbers.startsWith("7")) {
+      numbers = "7" + numbers;
+    }
+
+    numbers = numbers.slice(0, 11); // 7 + 10 цифр
+
+    const p1 = numbers.slice(1, 4); // ___
+    const p2 = numbers.slice(4, 7); // ___
+    const p3 = numbers.slice(7, 9); // __
+    const p4 = numbers.slice(9, 11); // __
+
+    let result = "+7";
+    if (p1) result += ` (${p1}`;
+    if (p1.length === 3) result += ")";
+    if (p2) result += ` ${p2}`;
+    if (p3) result += `-${p3}`;
+    if (p4) result += `-${p4}`;
+
+    return result;
+  };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     const { name, value, type } = e.target;
+
+    if (name === "phone") {
+      const formatted = formatPhone(value);
+      setFormData((prev) => ({ ...prev, phone: formatted }));
+      return;
+    }
+
+    if (name === "email") {
+      // оставляем только латиницу, цифры и ._%+-@
+      const cleaned = value.replace(/[^a-zA-Z0-9@._%+-]/g, "");
+      setFormData((prev) => ({ ...prev, email: cleaned }));
+      return;
+    }
+
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+      [name]:
+        type === "checkbox"
+          ? (e.target as HTMLInputElement).checked
+          : value,
     }));
+  };
+
+  const validate = () => {
+    const errors: { email?: string; phone?: string } = {};
+
+    // проверка телефона: нужно минимум 11 цифр
+    const digits = formData.phone.replace(/\D/g, "");
+    if (digits.length < 11) {
+      errors.phone = "Укажите полный номер телефона";
+    }
+
+    // email не обязателен, но если есть — валидируем
+    if (formData.email.trim() && !EMAIL_REGEXP.test(formData.email)) {
+      errors.email = "Некорректный email (только латиница, формат name@example.com)";
+    }
+
+    setFieldError(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.phone || !formData.service || !formData.agreed) {
+    if (
+      !formData.name.trim() ||
+      !formData.phone.trim() ||
+      !formData.service.trim() ||
+      !formData.agreed
+    ) {
       setSubmitStatus("error");
       return;
     }
 
-    setIsSubmitting(true);
-    // Здесь можно добавить отправку формы на сервер
+    if (!validate()) {
+      setSubmitStatus("error");
+      return;
+    }
+
     try {
-      // await fetch("/api/contact", { method: "POST", body: JSON.stringify(formData) });
-      setTimeout(() => {
-        setSubmitStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-          agreed: false,
-        });
-        setTimeout(() => setSubmitStatus("idle"), 3000);
-      }, 500);
+      setIsSubmitting(true);
+      setSubmitStatus("idle");
+
+      await sendLead("repair", {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email || undefined,
+        service: formData.service || undefined,
+        message: formData.message || undefined,
+      });
+
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+        agreed: false,
+      });
+      setFieldError({});
+      setTimeout(() => setSubmitStatus("idle"), 4000);
     } catch (error) {
+      console.error(error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -80,9 +199,11 @@ export function ContactForm() {
   };
 
   return (
-    <section className="py-16 bg-white border-b border-gray-200" id="contact-form">
+    <section
+      className="py-16 bg-white border-b border-gray-200"
+      id="contact-form"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Заголовок */}
         <div className="mb-10 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
             Оставить заявку
@@ -93,10 +214,8 @@ export function ContactForm() {
           </p>
         </div>
 
-        {/* Форма */}
         <div className="mx-auto max-w-2xl rounded-lg border border-gray-200 bg-gray-50 p-6 sm:p-8 shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Имя */}
             <div>
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Имя <span className="text-red-600">*</span>
@@ -112,7 +231,6 @@ export function ContactForm() {
               />
             </div>
 
-            {/* Email */}
             <div>
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Email
@@ -122,12 +240,19 @@ export function ContactForm() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="your@email.com"
-                className="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-500 focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600 transition-colors"
+                placeholder="name@example.com"
+                className={`w-full rounded-md border px-4 py-2.5 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-1 transition-colors ${fieldError.email
+                  ? "border-red-500 focus:border-red-600 focus:ring-red-600"
+                  : "border-gray-300 focus:border-red-600 focus:ring-red-600"
+                  } bg-white`}
               />
+              {fieldError.email && (
+                <p className="mt-1 text-xs text-red-600">
+                  {fieldError.email}
+                </p>
+              )}
             </div>
 
-            {/* Телефон */}
             <div>
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Телефон <span className="text-red-600">*</span>
@@ -138,12 +263,20 @@ export function ContactForm() {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="+7 (950) 200-00-00"
-                className="w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-500 focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600 transition-colors"
+                inputMode="tel"
+                className={`w-full rounded-md border px-4 py-2.5 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-1 transition-colors ${fieldError.phone
+                  ? "border-red-500 focus:border-red-600 focus:ring-red-600"
+                  : "border-gray-300 focus:border-red-600 focus:ring-red-600"
+                  } bg-white`}
                 required
               />
+              {fieldError.phone && (
+                <p className="mt-1 text-xs text-red-600">
+                  {fieldError.phone}
+                </p>
+              )}
             </div>
 
-            {/* Тип услуги */}
             <div>
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Тип услуги <span className="text-red-600">*</span>
@@ -164,7 +297,6 @@ export function ContactForm() {
               </select>
             </div>
 
-            {/* Сообщение */}
             <div>
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Сообщение
@@ -179,7 +311,6 @@ export function ContactForm() {
               />
             </div>
 
-            {/* Согласие */}
             <div className="flex items-start gap-3">
               <input
                 type="checkbox"
@@ -190,30 +321,34 @@ export function ContactForm() {
                 className="mt-1 w-4 h-4 rounded border-gray-300 text-red-600 focus:ring-red-600 cursor-pointer"
                 required
               />
-              <label htmlFor="agreed" className="text-sm text-gray-600 cursor-pointer">
+              <label
+                htmlFor="agreed"
+                className="text-sm text-gray-600 cursor-pointer"
+              >
                 Я согласен с{" "}
-                <a href="#" className="text-red-600 hover:underline">
+                <a href="/usloviya" className="text-red-600 hover:underline">
                   условиями использования
-                </a>
-                {" "}и политикой конфиденциальности{" "}
+                  {" "}
+                  и политикой конфиденциальности{" "}</a>
                 <span className="text-red-600">*</span>
               </label>
             </div>
 
-            {/* Статус отправки */}
             {submitStatus === "success" && (
               <div className="rounded-md bg-green-50 p-3 text-sm text-green-800 border border-green-200">
-                ✓ Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.
+                ✓ Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее
+                время.
               </div>
             )}
 
             {submitStatus === "error" && (
               <div className="rounded-md bg-red-50 p-3 text-sm text-red-800 border border-red-200">
-                ✗ Ошибка. Пожалуйста, заполните все обязательные поля и согласитесь с условиями.
+                ✗ Ошибка. Пожалуйста, проверьте обязательные поля, телефон и
+                email, а также согласие с условиями. Если ошибка повторяется,
+                попробуйте позже.
               </div>
             )}
 
-            {/* Кнопка отправки */}
             <button
               type="submit"
               disabled={isSubmitting}
@@ -222,9 +357,14 @@ export function ContactForm() {
               {isSubmitting ? "Отправка..." : "Отправить заявку"}
             </button>
 
-            {/* Подтекст */}
             <p className="text-center text-xs text-gray-500">
-              или позвоните нам: <a href="tel:+79502006564" className="text-red-600 font-semibold">+7 950 200-65-64</a>
+              или позвоните нам:{" "}
+              <a
+                href="tel:+79502006564"
+                className="text-red-600 font-semibold"
+              >
+                +7 950 200-65-64
+              </a>
             </p>
           </form>
         </div>
