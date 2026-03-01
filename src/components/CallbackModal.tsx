@@ -27,31 +27,34 @@ export function CallbackModal({ open, onClose }: CallbackModalProps) {
 
     // Маска телефона
     const formatPhone = (value: string): string => {
-        // Убираем всё кроме цифр
-        let onlyNumbers = value.replace(/\D/g, '');
+        // Только цифры
+        let numbers = value.replace(/\D/g, '');
 
-        // Приводим к формату +7...
-        if (onlyNumbers.startsWith('8')) {
-            onlyNumbers = '7' + onlyNumbers.slice(1);
-        }
-        if (!onlyNumbers.startsWith('7')) {
-            onlyNumbers = '7' + onlyNumbers;
-        }
+        // Если пусто — показываем +7 (
+        if (numbers.length === 0) return '+7 (';
 
-        let formatted = '+7 ';
-        if (onlyNumbers.length > 1) formatted += onlyNumbers.slice(1, 4);
-        formatted += onlyNumbers.length > 4 ? ` ${onlyNumbers.slice(4, 7)}` : '   ';
-        formatted += onlyNumbers.length > 7 ? `-${onlyNumbers.slice(7, 9)}` : '  ';
-        formatted += onlyNumbers.length > 9 ? `-${onlyNumbers.slice(9, 11)}` : '  ';
+        // Приводим к 7...
+        if (numbers.startsWith('8')) numbers = '7' + numbers.slice(1);
+        if (!numbers.startsWith('7')) numbers = '7' + numbers;
+
+        // Форматируем по частям
+        let formatted = '+7 (';
+        if (numbers.length > 1) formatted += numbers.slice(1, 4);  // 999
+        formatted += ') ';
+        if (numbers.length > 4) formatted += numbers.slice(4, 7);  // 123
+        if (numbers.length > 7) formatted += '-' + numbers.slice(7, 9);  // 45
+        if (numbers.length > 9) formatted += '-' + numbers.slice(9, 11); // 67
 
         return formatted;
     };
+
 
     const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const rawValue = e.target.value.replace(/\D/g, '');
         const formatted = formatPhone(rawValue);
         setPhone(formatted);
     };
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -138,8 +141,8 @@ export function CallbackModal({ open, onClose }: CallbackModalProps) {
 
                     {message && (
                         <div className={`p-3 rounded-lg text-sm ${message.includes('✅')
-                                ? 'bg-green-50 border border-green-200 text-green-800'
-                                : 'bg-destructive/10 border border-destructive/30 text-destructive'
+                            ? 'bg-green-50 border border-green-200 text-green-800'
+                            : 'bg-destructive/10 border border-destructive/30 text-destructive'
                             }`}>
                             {message}
                         </div>
