@@ -25,27 +25,36 @@ export function CallbackModal({ open, onClose }: CallbackModalProps) {
         }
     }, [open]);
 
-    // Маска телефона
-    const formatPhone = (value: string): string => {
-        // Только цифры
-        let numbers = value.replace(/\D/g, '');
+    // форматирование телефона в маску +7 (___) ___-__-__
+    const formatPhone = (value: string) => {
+        // убираем всё, кроме цифр
+        const digits = value.replace(/\D/g, "");
 
-        // Если пусто — показываем +7 (
-        if (numbers.length === 0) return '+7 (';
+        // берём только первые 10 цифр после 7 (7XXXXXXXXXX)
+        let numbers = digits;
 
-        // Приводим к 7...
-        if (numbers.startsWith('8')) numbers = '7' + numbers.slice(1);
-        if (!numbers.startsWith('7')) numbers = '7' + numbers;
+        if (numbers.startsWith("8")) {
+            numbers = "7" + numbers.slice(1);
+        }
+        if (!numbers.startsWith("7")) {
+            numbers = "7" + numbers;
+        }
 
-        // Форматируем по частям
-        let formatted = '+7 (';
-        if (numbers.length > 1) formatted += numbers.slice(1, 4);  // 999
-        formatted += ') ';
-        if (numbers.length > 4) formatted += numbers.slice(4, 7);  // 123
-        if (numbers.length > 7) formatted += '-' + numbers.slice(7, 9);  // 45
-        if (numbers.length > 9) formatted += '-' + numbers.slice(9, 11); // 67
+        numbers = numbers.slice(0, 11); // 7 + 10 цифр
 
-        return formatted;
+        const p1 = numbers.slice(1, 4); // ___
+        const p2 = numbers.slice(4, 7); // ___
+        const p3 = numbers.slice(7, 9); // __
+        const p4 = numbers.slice(9, 11); // __
+
+        let result = "+7";
+        if (p1) result += ` (${p1}`;
+        if (p1.length === 3) result += ")";
+        if (p2) result += ` ${p2}`;
+        if (p3) result += `-${p3}`;
+        if (p4) result += `-${p4}`;
+
+        return result;
     };
 
 
