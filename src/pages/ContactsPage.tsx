@@ -106,13 +106,13 @@ export function ContactsPage() {
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
                   Понедельник — Пятница
                 </h3>
-                <p className="text-base text-gray-700">09:00 — 21:00</p>
+                <p className="text-base text-gray-700">09:00 — 18:00</p>
               </div>
               <div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
                   Суббота — Воскресенье
                 </h3>
-                <p className="text-base text-gray-700">09:00 — 21:00</p>
+                <p className="text-base text-gray-700">Выходной</p>
               </div>
             </div>
           </div>
