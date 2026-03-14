@@ -96,7 +96,12 @@ export function Header() {
                 </svg>
               </span>
               <span className="text-sm text-muted-foreground">
-                Email: vvs@transfer01.ru
+                Email:&nbsp;
+                <a
+                  href="mailto:vsz@transfer01.ru"
+                >
+                  vvs@transfer01.ru
+                </a>
               </span>
             </div>
           </div>
@@ -140,10 +145,16 @@ export function Header() {
           {/* Контакты (desktop) */}
           <div className="px-4 py-2 hidden sm:block">
             <span className="text-sm text-foreground">
-              Сервис: +7&nbsp;950&nbsp;200‑65‑64
+              Сервис:
+              <a href="tel:+79502006564">
+                +7 950 200-65-64
+              </a>
             </span>
             <span className="block text-sm text-foreground">
-              Запчасти: +7&nbsp;950&nbsp;200‑61‑72
+              Запчасти:
+              <a href="tel:+79502006172">
+                +7 950 200-61-72
+              </a>
             </span>
           </div>
 
@@ -203,10 +214,16 @@ export function Header() {
             {/* Контакты (mobile) */}
             <div className="border border-border px-4 py-3">
               <span className="text-sm text-foreground">
-                Сервис: +7&nbsp;950&nbsp;200‑65‑64
+                Сервис:
+                <a href="tel:+79502006564">
+                  +7 950 200-65-64
+                </a>
               </span>
               <span className="block text-sm text-foreground">
-                Запчасти: +7&nbsp;950&nbsp;200‑61‑72
+                Запчасти:
+                <a href="tel:+79502006172">
+                  +7 950 200-61-72
+                </a>
               </span>
             </div>
           </nav>

@@ -1,23 +1,48 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const YandexMetrika: React.FC = () => {
-  useEffect(() => {
-    // Вставляем скрипт Яндекс Метрики
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.text = `
-      (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107098604', 'ym');
+  const location = useLocation();
 
-      ym(107098604, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    `;
+  useEffect(() => {
+    const sendPageView = () => {
+      if (typeof window !== 'undefined' && window.ym !== undefined) {
+        window.ym(107098604, 'hit', location.pathname + location.search);
+      }
+    };
+
+    sendPageView();
+  }, [location]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || window.ym !== undefined) return;
+
+    // Создаём скрипт без text/innerHTML
+    const script = document.createElement('script');
+    script.src = 'https://mc.yandex.ru/metrika/tag.js?id=107098604';
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+
+    script.onload = () => {
+      console.log('Яндекс Метрика загружена успешно');
+      if (window.ym) {
+        // Инициализируем после загрузки скрипта
+        window.ym(107098604, 'init', {
+          webvisor: true,
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: true,
+          ecommerce: "dataLayer"
+        });
+      }
+    };
+
+    script.onerror = () => {
+      console.warn('Яндекс Метрика заблокирована или не загрузилась');
+    };
+
     document.head.appendChild(script);
 
-    // Очистка при размонтировании
     return () => {
       document.head.removeChild(script);
     };

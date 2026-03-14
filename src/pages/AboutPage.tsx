@@ -1,14 +1,18 @@
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+// import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { BuildingOfficeIcon, CheckCircleIcon, SparklesIcon, UsersIcon } from "@heroicons/react/24/outline";
 import heroImage from "../assets/images/hero-image.png";
 import aboutWorkshop from "../assets/images/about-workshop.jpg";
-
+import { useSeoMetadata } from "../hooks/useSeoMetadata";
 
 export function AboutPage() {
-  useDocumentTitle("Грузовой Двор‑НТ — О нашей компании");
+  useSeoMetadata({
+    title: "Грузовой Двор‑НТ — О нашей компании",
+    description: "Узнайте больше о нашей компании и услугах.",
+    canonicalUrl: "https://gruzovoi-dvor.ru/o-nas"
+  });
 
   return (
     <div className="min-h-screen bg-gray-50">
