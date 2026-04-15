@@ -1,10 +1,15 @@
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+//import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { useSeoMetadata } from "../hooks/useSeoMetadata";
 
 export function TermsPage() {
-    useDocumentTitle("Условия использования и политика конфиденциальности");
-
+    //useDocumentTitle("Условия использования и политика конфиденциальности");
+    useSeoMetadata({
+        title: "Грузовой Двор‑НТ — Условия использования и политика конфиденциальности",
+        description: "Условия использования сайта и политика конфиденциальности Грузовой Двор (Нижний Тагил). Информация о защите данных и правилах работы с ресурсом.",
+        canonicalUrl: "https://gruzovoi-dvor.ru/usloviya"
+    });
     return (
         <div className="min-h-screen bg-gray-50">
             <Header />

@@ -4,10 +4,16 @@ import { Footer } from "../components/Footer";
 import { ALL_SERVICES } from "../components/ServicesSection";
 import { ServiceIcon } from "../components/ServiceIcons";
 import type { ServiceIconKey } from "../components/ServiceIcons";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+//import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { useSeoMetadata } from "../hooks/useSeoMetadata";
 
 export function ServicesPage() {
-  useDocumentTitle("Грузовой Двор‑НТ — Все услуги сервиса")
+  //useDocumentTitle("Грузовой Двор‑НТ — Все услуги сервиса")
+  useSeoMetadata({
+    title: "Грузовой Двор‑НТ — Все услуги сервиса",
+    description: "Все услуги Грузовой Двор в Нижнем Тагиле: ремонт, ТО, запчасти, обслуживание автопарков. Рассрочка для ИП. Гарантия. Подробности на странице!",
+    canonicalUrl: "https://gruzovoi-dvor.ru/uslugi"
+  });
 
   return (
     <div className="min-h-screen bg-gray-50">

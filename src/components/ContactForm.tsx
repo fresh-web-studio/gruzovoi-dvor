@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+//import { useLocation } from "react-router-dom";
 
 type FormData = {
   name: string;
@@ -53,6 +54,8 @@ const EMAIL_REGEXP =
   /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 export function ContactForm() {
+  // const location = useLocation();
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -178,6 +181,13 @@ export function ContactForm() {
         service: formData.service || undefined,
         message: formData.message || undefined,
       });
+
+      // 👉 отправляем событие в Яндекс Метрику
+      if (typeof window !== "undefined" && (window as any).ym) {
+        (window as any).ym(107098604, "reachGoal", "form_submit", {
+          service: formData.service || "unknown",
+        });
+      }
 
       setSubmitStatus("success");
       setFormData({

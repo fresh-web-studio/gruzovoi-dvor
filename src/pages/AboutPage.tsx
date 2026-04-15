@@ -10,7 +10,7 @@ import { useSeoMetadata } from "../hooks/useSeoMetadata";
 export function AboutPage() {
   useSeoMetadata({
     title: "Грузовой Двор‑НТ — О нашей компании",
-    description: "Узнайте больше о нашей компании и услугах.",
+    description: "Грузовой Двор‑НТ — Узнайте больше о нашей компании и услугах.",
     canonicalUrl: "https://gruzovoi-dvor.ru/o-nas"
   });
 

@@ -7,22 +7,42 @@ interface SeoMetadataProps {
 }
 
 export function useSeoMetadata(props: SeoMetadataProps) {
+    const { title, description, canonicalUrl } = props;
+
     useEffect(() => {
         // Установка заголовка страницы
-        if (props.title !== undefined) {
-            document.title = props.title;
+        if (title !== undefined) {
+            document.title = title;
         }
 
-        // Установка мета-тега description
-        const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-        if (metaDescription && props.description !== undefined) {
-            metaDescription.content = props.description;
+        // Управление мета‑тегом description
+        let metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+        if (description !== undefined) {
+            if (!metaDescription) {
+                metaDescription = document.createElement('meta');
+                metaDescription.name = 'description';
+                metaDescription.setAttribute('data-seo-generated', 'true');
+                document.head.appendChild(metaDescription);
+            }
+            metaDescription.content = description;
+        } else if (metaDescription) {
+            // Удаляем тег, если description не передано
+            metaDescription.remove();
         }
 
-        // Установка канонического URL
-        const linkCanonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-        if (linkCanonical && props.canonicalUrl !== undefined) {
-            linkCanonical.href = props.canonicalUrl;
+        // Управление каноническим URL
+        let linkCanonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+        if (canonicalUrl !== undefined) {
+            if (!linkCanonical) {
+                linkCanonical = document.createElement('link');
+                linkCanonical.rel = 'canonical';
+                linkCanonical.setAttribute('data-seo-generated', 'true');
+                document.head.appendChild(linkCanonical);
+            }
+            linkCanonical.href = canonicalUrl;
+        } else if (linkCanonical) {
+            // Удаляем тег, если canonicalUrl не передан
+            linkCanonical.remove();
         }
-    }, [props.title, props.description, props.canonicalUrl]);
+    }, [title, description, canonicalUrl]);
 }

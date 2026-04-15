@@ -1,15 +1,20 @@
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+//import { useDocumentTitle } from "../hooks/useDocumentTitle";
 //import { BuildingOfficeIcon, CheckCircleIcon, SparklesIcon, UsersIcon } from "@heroicons/react/24/outline";
 import aboutWorkshop from "../assets/images/about-workshop.jpg";
 import { DvigateliForm } from "../components/DvigateliForm";
+import { useSeoMetadata } from "../hooks/useSeoMetadata";
 
 
 export function DvigateliPage() {
-    useDocumentTitle("Грузовой Двор‑НТ — Ремонт двигателей грузовых автомомбилей");
-
+    //useDocumentTitle("Грузовой Двор‑НТ — Ремонт двигателей грузовых автомомбилей");
+    useSeoMetadata({
+        title: "Грузовой Двор‑НТ — Ремонт двигателей грузовых автомомбилей",
+        description: "Ремонт грузовых двигателей в Нижнем Тагиле: диагностика, капремонт, замена узлов. Опытные мотористы, гарантия 6 месяцев. Звоните!",
+        canonicalUrl: "https://gruzovoi-dvor.ru/dvigateli"
+    });
     return (
         <div className="min-h-screen bg-gray-50">
             <Header />

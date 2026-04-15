@@ -90,6 +90,10 @@ export function CallbackModal({ open, onClose }: CallbackModalProps) {
             const data = await response.json();
 
             if (data.ok) {
+                if (typeof window !== "undefined" && (window as any).ym) {
+                    (window as any).ym(107098604, "reachGoal", "callback_submit");
+                }
+
                 setMessage('✅ Заявка отправлена! Скоро перезвоним.');
                 setName('');
                 setPhone('');

@@ -12,10 +12,16 @@ import { ContactForm } from "../components/ContactForm";
 import { FAQSection } from "../components/FAQSection";
 import { MapSection } from "../components/MapSection";
 import { Footer } from "../components/Footer";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+//import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { useSeoMetadata } from "../hooks/useSeoMetadata";
 
 export function HomePage() {
-  useDocumentTitle("Грузовой Двор‑НТ — ремонт грузовиков в Нижнем Тагиле");
+
+  useSeoMetadata({
+    title: "Грузовой Двор‑НТ — Ремонт грузовиков в Нижнем Тагиле",
+    description: "Грузовой Двор‑НТ — обслуживание и ремонт грузовиков в Нижнем Тагиле. Запчасти в наличии, договор на автопарк, рассрочка для ИП. Гарантия 6 месяцев.",
+    canonicalUrl: "https://gruzovoi-dvor.ru"
+  });
 
   return (
     <div className="min-h-screen bg-gray-50">

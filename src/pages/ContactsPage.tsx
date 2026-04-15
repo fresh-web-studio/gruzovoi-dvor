@@ -2,15 +2,21 @@ import { Header } from "../components/Header";
 import { MapSection } from "../components/MapSection";
 import { ContactForm } from "../components/ContactForm";
 import { Footer } from "../components/Footer";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+//import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import {
   MapPinIcon,
   PhoneIcon,
   EnvelopeIcon,
 } from "@heroicons/react/24/outline";
+import { useSeoMetadata } from "../hooks/useSeoMetadata";
 
 export function ContactsPage() {
-  useDocumentTitle("Грузовой Двор‑НТ — Контакты");
+  //useDocumentTitle("Грузовой Двор‑НТ — Контакты");
+  useSeoMetadata({
+    title: "Грузовой Двор‑НТ — Контакты",
+    description: "Грузовой Двор‑НТ - Нижний Тагил: адрес, телефон, email, график работы. Как нас найти — схема проезда. Звоните: +7 (950) 200-65-64. Всегда на связи!",
+    canonicalUrl: "https://gruzovoi-dvor.ru/kontakty"
+  });
 
   return (
     <div className="min-h-screen bg-gray-50">

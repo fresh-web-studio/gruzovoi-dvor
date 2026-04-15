@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+//import { useLocation } from "react-router-dom";
 
 type FormData = {
     name: string;
@@ -36,6 +37,8 @@ const EMAIL_REGEXP =
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 export function DvigateliForm() {
+    //const location = useLocation();
+
     const [formData, setFormData] = useState<FormData>({
         name: "",
         email: "",
@@ -159,6 +162,11 @@ export function DvigateliForm() {
                 service: "Диагностика и ремонт двигателя",
                 message: formData.message || undefined,
             });
+
+            // 👉 цель Метрики для формы по двигателям
+            if (typeof window !== "undefined" && (window as any).ym) {
+                (window as any).ym(107098604, "reachGoal", "form_dvigatel");
+            }
 
             setSubmitStatus("success");
             setFormData({
