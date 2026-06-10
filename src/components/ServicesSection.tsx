@@ -42,12 +42,6 @@ export const HOME_SERVICES: Service[] = [
     shortDescription: "Работы по подвеске, амортизаторам, рессорам и стабилизаторам.",
   },
   {
-    name: "Ремонт фургонов",
-    price: "от 6 000 ₽",
-    icon: "clutch",
-    shortDescription: "Ремонт и обслуживание кузовов, рефрижераторных установок и дверей.",
-  },
-  {
     name: "Сварочные работы",
     price: "от 3 000 ₽",
     icon: "headGasket",
@@ -65,10 +59,22 @@ export const HOME_SERVICES: Service[] = [
     icon: "brakeAdjust",
     shortDescription: "Обслуживание и ремонт пневматических тормозов и компрессоров.",
   },
+  {
+    name: "Профессиональный автоэлектрик для грузовиков с выездом",
+    price: "от 3 000 ₽/час",
+    icon: "starter",
+    shortDescription: "Генераторы, стартеры, электронного блока управления (ЭБУ), проводка. Выезд по Нижнему Тагилу.",
+  },
 ];
 
 // ПОЛНАЯ БАЗА УСЛУГ (для страницы Услуги)
 export const ALL_SERVICES: Service[] = [
+  {
+    name: "Ремонт автоэлектрики грузовиков",
+    price: "от 3 000 ₽/час",
+    icon: "starter",
+    shortDescription: "Генераторы КамАЗ, стартеры Volvo, ЭБУ Scania, CAN-шина МАЗ. Выезд.",
+  },
   // Масла, фильтры, жидкости
   {
     name: "Замена масла и фильтра ДВС",
@@ -286,19 +292,20 @@ export function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {HOME_SERVICES.map((service) => {
             const isEngineRepair = service.name === "Ремонт двигателей";
+            const isAutoElektrik = service.name === "Профессиональный автоэлектрик для грузовиков с выездом"; // 👈 НОВОЕ
 
             const card = (
               <article
                 key={service.name}
                 className="
-          border border-border
-          rounded-xl
-          bg-card
-          p-6
-          shadow-sm
-          hover:border-primary/70 hover:shadow-md
-          transition-colors transition-shadow
-        "
+        border border-border
+        rounded-xl
+        bg-card
+        p-6
+        shadow-sm
+        hover:border-primary/70 hover:shadow-md
+        transition-colors transition-shadow
+      "
               >
                 <div className="w-16 h-16 rounded-lg border border-border mb-4 flex items-center justify-center bg-primary/5">
                   <ServiceIcon type={service.icon} />
@@ -318,18 +325,26 @@ export function ServicesSection() {
               </article>
             );
 
-            return isEngineRepair ? (
-              <Link
-                to="/dvigateli"
-                key={service.name}
-                className="block hover:no-underline"
-              >
-                {card}
-              </Link>
-            ) : (
-              card
-            );
+            // 👈 ОБНОВИ УСЛОВИЕ:
+            if (isEngineRepair) {
+              return (
+                <Link to="/dvigateli" key={service.name} className="block hover:no-underline">
+                  {card}
+                </Link>
+              );
+            }
+
+            if (isAutoElektrik) {
+              return (
+                <Link to="/avtoelektrik" key={service.name} className="block hover:no-underline">
+                  {card}
+                </Link>
+              );
+            }
+
+            return card;
           })}
+
         </div>
 
       </div>

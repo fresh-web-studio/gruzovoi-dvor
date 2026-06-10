@@ -7,6 +7,7 @@ import { ServicesPage } from "./pages/ServicesPage";
 import { AboutPage } from "./pages/AboutPage";
 import { TermsPage } from "./pages/TermsPage";
 import { DvigateliPage } from "./pages/DvigateliPage";
+import { AutoElektrikPage } from "./pages/AutoElektrikPage";
 
 import { YandexMetrika } from "./components/YandexMetrika";
 
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/kontakty" element={<ContactsPage />} />
         <Route path="/usloviya" element={<TermsPage />} />
         <Route path="/dvigateli" element={<DvigateliPage />} />
+        <Route path="/avtoelektrik" element={<AutoElektrikPage />} />
       </Routes>
     </HelmetProvider>
   );

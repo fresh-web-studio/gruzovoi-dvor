@@ -5,48 +5,64 @@ export const YandexMetrika: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const sendPageView = () => {
-      if (typeof window !== 'undefined' && window.ym !== undefined) {
-        window.ym(107098604, 'hit', location.pathname + location.search);
-      }
+    if (typeof window === 'undefined') return;
+
+    const w = window as Window & {
+      ym: ((...args: any[]) => void) & { a?: any[]; l?: number };
     };
 
-    sendPageView();
-  }, [location]);
+    w.ym =
+      w.ym ||
+      function (...args: any[]) {
+        w.ym.a = w.ym.a || [];
+        w.ym.a.push(args);
+      };
 
-  useEffect(() => {
-    if (typeof window === 'undefined' || window.ym !== undefined) return;
+    w.ym.l = Date.now();
 
-    // Создаём скрипт без text/innerHTML
+    const initMetrika = () => {
+      w.ym(107098604, 'init', {
+        defer: true,
+        webvisor: true,
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        ecommerce: 'dataLayer',
+      });
+
+      w.ym(107098604, 'hit', location.pathname + location.search);
+    };
+
+    const scriptId = 'yandex-metrika-tag';
+
+    const existing = document.getElementById(scriptId) as HTMLScriptElement | null;
+    if (existing) {
+      if (existing.dataset.loaded === 'true') {
+        initMetrika();
+      } else {
+        existing.addEventListener('load', initMetrika, { once: true });
+      }
+      return;
+    }
+
     const script = document.createElement('script');
-    script.src = 'https://mc.yandex.ru/metrika/tag.js?id=107098604';
+    script.id = scriptId;
+    script.src = 'https://mc.yandex.ru/metrika/tag.js';
     script.async = true;
     script.crossOrigin = 'anonymous';
+    script.dataset.loaded = 'false';
 
     script.onload = () => {
-      console.log('Яндекс Метрика загружена успешно');
-      if (window.ym) {
-        // Инициализируем после загрузки скрипта
-        window.ym(107098604, 'init', {
-          webvisor: true,
-          clickmap: true,
-          trackLinks: true,
-          accurateTrackBounce: true,
-          ecommerce: "dataLayer"
-        });
-      }
+      script.dataset.loaded = 'true';
+      initMetrika();
     };
 
     script.onerror = () => {
-      console.warn('Яндекс Метрика заблокирована или не загрузилась');
+      console.warn('Яндекс Метрика не загрузилась');
     };
 
     document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+  }, [location.pathname, location.search]);
 
   return null;
 };
