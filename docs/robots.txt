@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Блокируем только служебные пути
+Disallow: /api/

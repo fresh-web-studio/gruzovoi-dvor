@@ -95,7 +95,7 @@ export function Footer() {
         {/* Нижняя полоса */}
         <div className="pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-400">
           <p className="text-center md:text-left">
-            © {new Date().getFullYear()} «Грузовой Двор‑НТ». Все права защищены.
+            © 2025 - {new Date().getFullYear()} «Грузовой Двор‑НТ». Все права защищены.
           </p>
           <p className="md:flex-1 max-w-2xl text-center md:text-right">
             На сайте используются файлы cookie для улучшения работы сервиса и анализа
