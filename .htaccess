@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.gruzovoi-dvor\.ru$ [NC]
+RewriteRule ^(.*)$ https://gruzovoi-dvor.ru/$1 [R=301,L]
+
+# SPA routing для React Router
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
