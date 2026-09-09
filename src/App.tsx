@@ -8,6 +8,7 @@ import { AboutPage } from "./pages/AboutPage";
 import { TermsPage } from "./pages/TermsPage";
 import { DvigateliPage } from "./pages/DvigateliPage";
 import { AutoElektrikPage } from "./pages/AutoElektrikPage";
+import { PortfolioPage } from "./pages/PortfolioPage";
 
 import { YandexMetrika } from "./components/YandexMetrika";
 
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/usloviya" element={<TermsPage />} />
         <Route path="/dvigateli" element={<DvigateliPage />} />
         <Route path="/avtoelektrik" element={<AutoElektrikPage />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
       </Routes>
     </HelmetProvider>
   );

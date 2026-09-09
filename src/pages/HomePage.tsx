@@ -5,7 +5,7 @@ import { AboutSection } from "../components/AboutSection";
 import { ExpectationSection } from "../components/ExpectationSection";
 import { LogoSection } from "../components/LogoSection";
 import { FeaturesSection } from "../components/FeaturesSection";
-//import { WorkSection } from "../components/WorkSection";
+import { PortfolioSection } from "../components/PortfolioSection";
 import { ReviewsSection } from "../components/ReviewsSection";
 import { StatisticsSection } from "../components/StatisticsSection";
 import { ContactForm } from "../components/ContactForm";
@@ -33,7 +33,7 @@ export function HomePage() {
         <ExpectationSection />
         <LogoSection />
         <FeaturesSection />
-        {/* <WorkSection /> */}
+        <PortfolioSection />
         <ReviewsSection />
         <StatisticsSection />
         <ContactForm />

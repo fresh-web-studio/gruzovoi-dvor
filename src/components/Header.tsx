@@ -135,6 +135,12 @@ export function Header() {
               О нас
             </Link>
             <Link
+              to="/portfolio"
+              className="px-4 py-2 border border-border text-sm text-foreground hover:bg-primary hover:text-white transition-colors"
+            >
+              Наши работы
+            </Link>
+            <Link
               to="/kontakty"
               className="px-4 py-2 border border-border text-sm text-foreground hover:bg-primary hover:text-white transition-colors"
             >
@@ -202,6 +208,13 @@ export function Header() {
               onClick={closeMobile}
             >
               О нас
+            </Link>
+            <Link
+              to="/portfolio"
+              className="block px-4 py-3 border border-border text-sm text-foreground"
+              onClick={closeMobile}
+            >
+              Наши работы
             </Link>
             <Link
               to="/kontakty"

@@ -33,6 +33,9 @@ export function Footer() {
               <Link to="/o-nas" className="hover:text-white transition-colors">
                 О компании
               </Link>
+              <Link to="/portfolio" className="hover:text-white transition-colors">
+                Наши работы
+              </Link>
               <Link to="/kontakty" className="hover:text-white transition-colors">
                 Контакты
               </Link>
