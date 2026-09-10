@@ -59,6 +59,13 @@ const portfolioItems = [
     image: "obshchiy_vid.jpg",
     category: "suspension",
   },
+  {
+    id: 9,
+    title: "Износ сцепления",
+    description: "Замена комплекта",
+    image: "IMG_20260825_150649.jpg",
+    category: "clutch",
+  },
 ];
 
 export function PortfolioSection() {

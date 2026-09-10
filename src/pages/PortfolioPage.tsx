@@ -95,13 +95,13 @@ const portfolioItems: PortfolioItem[] = [
   { id: 114, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150641.jpg", category: "general" },
   { id: 115, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150643.jpg", category: "general" },
   { id: 116, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150646.jpg", category: "general" },
-  { id: 117, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150649.jpg", category: "general" },
-  { id: 118, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150652.jpg", category: "general" },
-  { id: 119, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150654.jpg", category: "general" },
-  { id: 120, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150656.jpg", category: "general" },
-  { id: 121, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150659.jpg", category: "general" },
-  { id: 122, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150701.jpg", category: "general" },
-  { id: 123, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150704.jpg", category: "general" },
+  { id: 221, title: "Износ сцепления", description: "Замена комплекта", image: "IMG_20260825_150649.jpg", category: "clutch" },
+  { id: 222, title: "Износ сцепления", description: "Замена комплекта", image: "IMG_20260825_150652.jpg", category: "clutch" },
+  { id: 223, title: "Износ сцепления", description: "Замена комплекта", image: "IMG_20260825_150654.jpg", category: "clutch" },
+  { id: 224, title: "Износ сцепления", description: "Замена комплекта", image: "IMG_20260825_150656.jpg", category: "clutch" },
+  { id: 225, title: "Износ сцепления", description: "Замена комплекта", image: "IMG_20260825_150659.jpg", category: "clutch" },
+  { id: 226, title: "Износ сцепления", description: "Замена комплекта", image: "IMG_20260825_150701.jpg", category: "clutch" },
+  { id: 227, title: "Износ сцепления", description: "Замена комплекта", image: "IMG_20260825_150704.jpg", category: "clutch" },
 ];
 
 const categories = [
@@ -112,6 +112,7 @@ const categories = [
   { id: "service", label: "ТО", count: portfolioItems.filter((i) => i.category === "service").length },
   { id: "steering", label: "Рулевое", count: portfolioItems.filter((i) => i.category === "steering").length },
   { id: "suspension_repair", label: "Ремонт ходовой", count: portfolioItems.filter((i) => i.category === "suspension_repair").length },
+  { id: "clutch", label: "Износ сцепления", count: portfolioItems.filter((i) => i.category === "clutch").length },
   { id: "ural", label: "Урал", count: portfolioItems.filter((i) => i.category === "ural").length },
   { id: "electronics", label: "Автоэлектрик", count: portfolioItems.filter((i) => i.category === "electronics").length },
   { id: "general", label: "Общие", count: portfolioItems.filter((i) => i.category === "general").length },
