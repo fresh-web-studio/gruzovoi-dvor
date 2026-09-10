@@ -96,7 +96,7 @@ export function PortfolioSection() {
             >
               <div className="aspect-square overflow-hidden bg-gray-100">
                 <img
-                  src={`/photos/${item.image}`}
+                  src={`${import.meta.env.BASE_URL}photos/${item.image}`}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"

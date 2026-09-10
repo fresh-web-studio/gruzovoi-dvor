@@ -57,7 +57,7 @@ export function ImageLightbox({
 
             {/* Изображение */}
             <img
-              src={`/photos/${image}`}
+              src={`${import.meta.env.BASE_URL}photos/${image}`}
               alt={title}
               className="max-h-[75vh] max-w-full object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-200"
             />
