@@ -66,6 +66,13 @@ const portfolioItems = [
     image: "IMG_20260825_150649.jpg",
     category: "clutch",
   },
+  {
+    id: 10,
+    title: "Ремонт двигателя Камаз",
+    description: "Ремонт двигателя",
+    image: "IMG_20260825_150633.jpg",
+    category: "kamaz",
+  },
 ];
 
 export function PortfolioSection() {
