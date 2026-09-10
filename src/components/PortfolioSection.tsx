@@ -73,6 +73,13 @@ const portfolioItems = [
     image: "IMG_20260825_150633.jpg",
     category: "kamaz",
   },
+  {
+    id: 11,
+    title: "Ремонт редуктора",
+    description: "Ремонт редуктора",
+    image: "IMG_20260825_150611.jpg",
+    category: "reducer",
+  },
 ];
 
 export function PortfolioSection() {
