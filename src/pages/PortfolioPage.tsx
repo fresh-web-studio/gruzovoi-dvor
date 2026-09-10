@@ -68,15 +68,15 @@ const portfolioItems: PortfolioItem[] = [
   { id: 45, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150550.jpg", category: "general" },
   { id: 46, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150553.jpg", category: "general" },
   { id: 47, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150555.jpg", category: "general" },
-  // Ремонт ходовой
+  // Ремонт ходовой части
   { id: 48, title: "Ремонт ходовой", description: "Ремонт ходовой части", image: "IMG_20260825_150716.jpg", category: "suspension_repair" },
   { id: 49, title: "Ремонт ходовой", description: "Ремонт ходовой части", image: "IMG_20260825_150719.jpg", category: "suspension_repair" },
   { id: 50, title: "Ремонт ходовой", description: "Ремонт ходовой части", image: "IMG_20260825_150722.jpg", category: "suspension_repair" },
   { id: 51, title: "Ремонт ходовой", description: "Ремонт ходовой части", image: "IMG_20260825_150724.jpg", category: "suspension_repair" },
-  { id: 48, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150557.jpg", category: "general" },
-  { id: 49, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150559.jpg", category: "general" },
-  { id: 50, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150602.jpg", category: "general" },
-  { id: 51, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150604.jpg", category: "general" },
+  { id: 80, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150557.jpg", category: "general" },
+  { id: 81, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150559.jpg", category: "general" },
+  { id: 82, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150602.jpg", category: "general" },
+  { id: 83, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150604.jpg", category: "general" },
   { id: 52, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150606.jpg", category: "general" },
   { id: 53, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150609.jpg", category: "general" },
   { id: 54, title: "Общие фото", description: "Сервисная зона", image: "IMG_20260825_150611.jpg", category: "general" },
@@ -161,11 +161,10 @@ export function PortfolioPage() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                  activeCategory === cat.id
-                    ? "bg-[#c92424] text-white"
-                    : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-100"
-                }`}
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${activeCategory === cat.id
+                  ? "bg-[#c92424] text-white"
+                  : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-100"
+                  }`}
               >
                 {cat.label}
                 <span className={`ml-1.5 text-xs ${activeCategory === cat.id ? "text-red-200" : "text-gray-400"}`}>
