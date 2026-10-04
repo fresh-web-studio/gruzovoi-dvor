@@ -27,3 +27,7 @@ dist-ssr
 *.sw?
 .env.local
 .env.*.local
+
+# Local docs (not for git)
+PROJECT.md
+README.md
