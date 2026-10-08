@@ -31,9 +31,9 @@ const portfolioItems: PortfolioItem[] = [
   // Общий вид
   { id: 13, title: "Общий вид", description: "Вид сервисной зоны", image: "obshchiy_vid.jpg", category: "suspension" },
   // ТО
-  { id: 14, title: "ТО Рено Мастер", description: "Плановое техническое обслуживание", image: "to_reno_master_1.jpg", category: "service" },
-  { id: 15, title: "ТО Рено Мастер", description: "Диагностика", image: "to_reno_master_2.jpg", category: "service" },
-  { id: 16, title: "ТО Рено Мастер", description: "Обслуживание узлов", image: "to_reno_master_3.jpg", category: "service" },
+  { id: 14, title: "ТО Повара на колесах", description: "Плановое техническое обслуживание", image: "to_reno_master_1.jpg", category: "service" },
+  { id: 15, title: "ТО Повара на колесах", description: "Плановое техническое обслуживание", image: "to_reno_master_2.jpg", category: "service" },
+  { id: 16, title: "ТО Повара на колесах", description: "Плановое техническое обслуживание", image: "to_reno_master_3.jpg", category: "service" },
   // Замена шкворней
   { id: 17, title: "Замена шкворней Шакман", description: "Рулевое управление", image: "shkornii_shakman_1.jpg", category: "steering" },
   { id: 18, title: "Замена шкворней Шакман", description: "Разборка", image: "shkornii_shakman_2.jpg", category: "steering" },
@@ -45,10 +45,9 @@ const portfolioItems: PortfolioItem[] = [
   { id: 23, title: "Ремонт Урал", description: "Готовый результат", image: "ural_4.jpg", category: "ural" },
   // Автоэлектрик
   { id: 24, title: "Автоэлектрик", description: "Диагностика электрооборудования", image: "renomaster.jpg", category: "electronics" },
-  { id: 25, title: "Автоэлектрик", description: "Ремонт проводки", image: "renomaster_2.jpg", category: "electronics" },
   // ТО
-  { id: 26, title: "ТО Рено Мастер", description: "Плановое техническое обслуживание", image: "IMG_20260825_150149.jpg", category: "service" },
-  { id: 27, title: "ТО Рено Мастер", description: "Техническое обслуживание", image: "IMG_20260825_150209.jpg", category: "service" },
+  { id: 26, title: "ТО Повара на колесах", description: "Плановое техническое обслуживание", image: "IMG_20260825_150149.jpg", category: "service" },
+  { id: 27, title: "ТО Повара на колесах", description: "Плановое техническое обслуживание", image: "IMG_20260825_150209.jpg", category: "service" },
   // Общие фото
   { id: 80, title: "Замена комплекта сцепления", description: "Износ сцепления", image: "IMG_20260825_150513.jpg", category: "clutch" },
   { id: 81, title: "Замена комплекта сцепления", description: "Износ сцепления", image: "IMG_20260825_150515.jpg", category: "clutch" },
@@ -214,6 +213,7 @@ export function PortfolioPage() {
         <ImageLightbox
           image={filteredItems[lightboxIndex].image}
           title={filteredItems[lightboxIndex].title}
+          description={filteredItems[lightboxIndex].description}
           onClose={closeLightbox}
           onPrev={prevImage}
           onNext={nextImage}

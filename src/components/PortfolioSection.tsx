@@ -33,7 +33,7 @@ const portfolioItems = [
   },
   {
     id: 5,
-    title: "ТО Рено Мастер",
+    title: "ТО Повара на колесах",
     description: "Плановое техническое обслуживание",
     image: "to_reno_master_1.jpg",
     category: "service",
@@ -59,27 +59,6 @@ const portfolioItems = [
     image: "obshchiy_vid.jpg",
     category: "suspension",
   },
-  {
-    id: 9,
-    title: "Износ сцепления",
-    description: "Замена комплекта",
-    image: "IMG_20260825_150649.jpg",
-    category: "clutch",
-  },
-  {
-    id: 10,
-    title: "Ремонт двигателя Камаз",
-    description: "Ремонт двигателя",
-    image: "IMG_20260825_150633.jpg",
-    category: "kamaz",
-  },
-  {
-    id: 11,
-    title: "Ремонт редуктора",
-    description: "Ремонт редуктора",
-    image: "IMG_20260825_150611.jpg",
-    category: "reducer",
-  },
 ];
 
 export function PortfolioSection() {
@@ -91,7 +70,7 @@ export function PortfolioSection() {
     if (lightboxIndex !== null && lightboxIndex > 0) setLightboxIndex(lightboxIndex - 1);
   };
   const nextImage = () => {
-    if (lightboxIndex !== null && lightboxIndex < portfolioItems.length - 1) setLightboxIndex(lightboxIndex + 1);
+    if (lightboxIndex !== null && lightboxIndex < 7) setLightboxIndex(lightboxIndex + 1);
   };
 
   return (
@@ -150,11 +129,12 @@ export function PortfolioSection() {
         <ImageLightbox
           image={portfolioItems[lightboxIndex].image}
           title={portfolioItems[lightboxIndex].title}
+          description={portfolioItems[lightboxIndex].description}
           onClose={closeLightbox}
           onPrev={prevImage}
           onNext={nextImage}
           hasPrev={lightboxIndex > 0}
-          hasNext={lightboxIndex < portfolioItems.length - 1}
+          hasNext={lightboxIndex < 7}
         />
       )}
     </section>

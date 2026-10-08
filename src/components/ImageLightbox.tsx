@@ -5,6 +5,7 @@ import { useEffect } from "react";
 interface LightboxProps {
   image: string;
   title: string;
+  description: string;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
@@ -15,6 +16,7 @@ interface LightboxProps {
 export function ImageLightbox({
   image,
   title,
+  description,
   onClose,
   onPrev,
   onNext,
@@ -41,19 +43,17 @@ export function ImageLightbox({
 
           {/* Content */}
           <div className="relative z-50 flex flex-col items-center max-w-screen-xl mx-auto px-4 py-8">
-            {/* Заголовок */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white text-center max-w-md">
-              <h3 className="text-lg font-semibold">{title}</h3>
+            {/* Заголовок и кнопка закрытия */}
+            <div className="w-full max-w-screen-xl flex items-center justify-between mb-4">
+              <h3 className="text-white text-lg font-semibold text-center flex-1 truncate px-4">{title}</h3>
+              <button
+                onClick={onClose}
+                className="p-2 text-white/80 hover:text-white bg-black/30 rounded-full hover:bg-black/50 transition-colors -mr-2 -mt-2"
+                aria-label="Закрыть"
+              >
+                <XIcon className="w-6 h-6" />
+              </button>
             </div>
-
-            {/* Кнопка закрытия */}
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 p-2 text-white/80 hover:text-white bg-black/30 rounded-full hover:bg-black/50 transition-colors"
-              aria-label="Закрыть"
-            >
-              <XIcon className="w-6 h-6" />
-            </button>
 
             {/* Изображение */}
             <img
@@ -75,7 +75,7 @@ export function ImageLightbox({
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <span className="text-white/70 text-sm">
-                {image.replace(".jpg", "").replace(/_/g, " ")}
+                {description}
               </span>
               <button
                 onClick={onNext}
