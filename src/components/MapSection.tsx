@@ -3,26 +3,13 @@ export function MapSection() {
     <section className="relative border-b border-gray-200 bg-gray-100">
       <div className="grid lg:grid-cols-1 lg:relative">
         {/* Карта 2ГИС — два адреса */}
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Карта — Трикотажников 7 */}
-          <div className="w-full h-[300px] sm:h-[380px] lg:h-[460px]">
-            <iframe
-              width="100%"
-              height="460px"
-              src="https://makemap.2gis.ru/widget?data=eJw9UE1zgjAU_C_pUcYJ34QbjSPaZhhCDx3b8cBIpLGRMCFYlfG_N6BtTi-7-_a9twOQqmKKVSmTR6YVZx2IPwegLy0DMViyUveKAQu0SrZM6YkfwE4KqQz_tHeg44-85lqMHaasWLdTvNVcNgbIV8kMvuRFnaULSPb0pPEFkpD2bwsqsqkuauzSpsIc968JR5hCQopa4xncrKiu0sT8aZ-lz-sMQ0hOxeGyoB0y-CanGhmd0XOULg3_899LruOsMyQH2iNsQ_IdETeZmQWv66ZiZxDb8O_dLFDfA7iM5z2uzyVvtNHvpAmJN6WewgngHIah69mWH86R7aEg3Jp-Xo2GyLttLXAs21x2_J7AAESpQfwQhz5CThhErhNYQIz83c_2nciLHM8NHbOglEfjFhlbE6UU4v2LMfExoVr17PYLcKeF2w"
-              sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"
-            />
-          </div>
-
-          {/* Карта — Северное шоссе 15 */}
-          <div className="w-full h-[300px] sm:h-[380px] lg:h-[460px]">
-            <iframe
-              width="100%"
-              height="460px"
-              src="https://makemap.2gis.ru/widget?data=eJyrVipKTc_Mz_PMUbIyNDbWUcrJT04sAQoUK1lFVyvlJeamKlkpxZQamBgZgkhjUzBphGCbGIDZKWAyFSKuAJawQAiZGCJIY1MdBUNTJR2l5Pz8ohSQPWYGegZmxoYW5jqm5nqWRuZm5paxtbG1ABO8K9s="
-              sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"
-            />
-          </div>
+        <div className="w-full h-[300px] sm:h-[380px] lg:h-[460px]">
+          <iframe
+            width="100%"
+            height="460px"
+            src="https://makemap.2gis.ru/widget?data=eJxtjk0OgjAQha9CZt2QTqftADfwDNoFUmJMlCagK8LdtYMJaNx8M3nz894MY3-5puEQoUEiBbfUtY-3MEFznGFo7z00cHpqaymTzmWRqzGiadEqYSvsRZcprVMvjP83yaiCQUGX0hizp9elZkZnlOOyRluzD4v6SmJQLt16v_WfNHH33UlYW-2i4UZyqkD36-4JKxZ3w57rsITlBS8wUS4="
+            sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"
+          />
         </div>
 
         {/* Информационная карточка */}
