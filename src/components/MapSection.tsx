@@ -19,7 +19,7 @@ export function MapSection() {
             <iframe
               width="100%"
               height="460px"
-              src="https://makemap.2gis.ru/widget?data=eJxtjk0OgjAQha_SzLohbadDCzfwDNpFpY0xUZqArgh3VwYT0Lj5ZvLm570Jhny5lv6QoNWIEm6li4-3MEJ7nKCP9wwtnJ7KWlyI50os1RjWFGueGZmZdZ7iOq2Z6f8mGikcSOhKGdLiSatKOafJSHJVo23j6jDLryRG8yWt91v_SZN234nDWr-LpjciSaHp190TW5swh_kFAVVPtQ=="
+              src="https://makemap.2gis.ru/widget?data=eJyrVipKTc_Mz_PMUbIyNDbWUcrJT04sAQoUK1lFVyvlJeamKlkpxZQamBgZgkhjUzBphGCbGIDZKWAyFSKuAJawQAiZGCJIY1MdBUNTJR2l5Pz8ohSQPWYGegZmxoYW5jqm5nqWRuZm5paxtbG1ABO8K9s="
               sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"
             />
           </div>
