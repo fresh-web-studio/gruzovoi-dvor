@@ -7,7 +7,7 @@ export function MapSection() {
           <iframe
             width="100%"
             height="460px"
-            src="https://makemap.2gis.ru/widget?data=eJxtjk0OgjAQha9CZt2QTqftADfwDNoFUmJMlCagK8LdtYMJaNx8M3nz894MY3-5puEQoUEiBbfUtY-3MEFznGFo7z00cHpqaymTzmWRqzGiadEqYSvsRZcprVMvjP83yaiCQUGX0hizp9elZkZnlOOyRluzD4v6SmJQLt16v_WfNHH33UlYW-2i4UZyqkD36-4JKxZ3w57rsITlBS8wUS4="
+              src="https://makemap.2gis.ru/widget?data=eJxlzEEKgkAYBeCr_Mx6ECdz_uwGnSFciEoE5YC1EyFr0zXqBCFMRGFneHOjhly0aPfeg_c1oi5Xa1MtCjEnFUWSxMbk2d5PO78sG1Fl29In4U54BYSrO-CBJ97uiBvuGMaGXhIL_86NqYvvVYdByKziiaSYg0RNE9ZpK-lH4gKLHtaTgycsubN3O9fBSlLxP6cjNeORm7DmJG3T9gNRpk1B"
             sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"
           />
         </div>
