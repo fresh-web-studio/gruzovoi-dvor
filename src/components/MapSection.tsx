@@ -2,15 +2,27 @@ export function MapSection() {
   return (
     <section className="relative border-b border-gray-200 bg-gray-100">
       <div className="grid lg:grid-cols-1 lg:relative">
-        {/* Карта 2ГИС */}
-        <div className="w-full h-[300px] sm:h-[380px] lg:h-[460px]">
-          <iframe
-            id="map_763809122"
-            width="100%"
-            height="460px"
-            src="https://makemap.2gis.ru/widget?data=eJw9UE1zgjAU_C_pUcYJ34QbjSPaZhhCDx3b8cBIpLGRMCFYlfG_N6BtTi-7-_a9twOQqmKKVSmTR6YVZx2IPwegLy0DMViyUveKAQu0SrZM6YkfwE4KqQz_tHeg44-85lqMHaasWLdTvNVcNgbIV8kMvuRFnaULSPb0pPEFkpD2bwsqsqkuauzSpsIc968JR5hCQopa4xncrKiu0sT8aZ-lz-sMQ0hOxeGyoB0y-CanGhmd0XOULg3_899LruOsMyQH2iNsQ_IdETeZmQWv66ZiZxDb8O_dLFDfA7iM5z2uzyVvtNHvpAmJN6WewgngHIah69mWH86R7aEg3Jp-Xo2GyLttLXAs21x2_J7AAESpQfwQhz5CThhErhNYQIz83c_2nciLHM8NHbOglEfjFhlbE6UU4v2LMfExoVr17PYLcKeF2w"
-            sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"
-          />
+        {/* Карта 2ГИС — два адреса */}
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          {/* Карта — Трикотажников 7 */}
+          <div className="w-full h-[300px] sm:h-[380px] lg:h-[460px]">
+            <iframe
+              width="100%"
+              height="460px"
+              src="https://makemap.2gis.ru/widget?data=eJw9UE1zgjAU_C_pUcYJ34QbjSPaZhhCDx3b8cBIpLGRMCFYlfG_N6BtTi-7-_a9twOQqmKKVSmTR6YVZx2IPwegLy0DMViyUveKAQu0SrZM6YkfwE4KqQz_tHeg44-85lqMHaasWLdTvNVcNgbIV8kMvuRFnaULSPb0pPEFkpD2bwsqsqkuauzSpsIc968JR5hCQopa4xncrKiu0sT8aZ-lz-sMQ0hOxeGyoB0y-CanGhmd0XOULg3_899LruOsMyQH2iNsQ_IdETeZmQWv66ZiZxDb8O_dLFDfA7iM5z2uzyVvtNHvpAmJN6WewgngHIah69mWH86R7aEg3Jp-Xo2GyLttLXAs21x2_J7AAESpQfwQhz5CThhErhNYQIz83c_2nciLHM8NHbOglEfjFhlbE6UU4v2LMfExoVr17PYLcKeF2w"
+              sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"
+            />
+          </div>
+
+          {/* Карта — Северное шоссе 15 */}
+          <div className="w-full h-[300px] sm:h-[380px] lg:h-[460px]">
+            <iframe
+              width="100%"
+              height="460px"
+              src="https://makemap.2gis.ru/widget?data=eJxtjk0OgjAQha_SzLohbadDCzfwDNpFpY0xUZqArgh3VwYT0Lj5ZvLm570Jhny5lv6QoNWIEm6li4-3MEJ7nKCP9wwtnJ7KWlyI50os1RjWFGueGZmZdZ7iOq2Z6f8mGikcSOhKGdLiSatKOafJSHJVo23j6jDLryRG8yWt91v_SZN234nDWr-LpjciSaHp190TW5swh_kFAVVPtQ=="
+              sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"
+            />
+          </div>
         </div>
 
         {/* Информационная карточка */}
@@ -108,15 +120,25 @@ export function MapSection() {
               </p>
             </div>
 
-            {/* Кнопка построения маршрута */}
-            <a
-              className="inline-flex w-full items-center justify-center rounded-md bg-[#c92424] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#b02020] transition-colors"
-              href="https://2gis.ru/directions/tab/bus/points/|60.077341,57.914967?m=60.07715284824372,57.914975992768326%2F18&routeLink=true"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Доехать с 2ГИС
-            </a>
+            {/* Кнопки построения маршрута */}
+            <div className="space-y-2">
+              <a
+                className="inline-flex w-full items-center justify-center rounded-md bg-[#c92424] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#b02020] transition-colors"
+                href="https://2gis.ru/directions/tab/bus/points/|60.077341,57.914967?m=60.07715284824372,57.914975992768326%2F18&routeLink=true"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Доехать до Трикотажников, 7
+              </a>
+              <a
+                className="inline-flex w-full items-center justify-center rounded-md bg-[#c92424] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#b02020] transition-colors"
+                href="https://2gis.ru/nizhniy-tagil/search/Северное%20шоссе%2015"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Доехать до Северное шоссе, 15
+              </a>
+            </div>
           </div>
         </div>
       </div>
