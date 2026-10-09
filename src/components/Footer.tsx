@@ -59,9 +59,16 @@ export function Footer() {
             <h3 className="mt-5 text-sm font-semibold text-gray-100 mb-1.5">
               Адрес
             </h3>
-            <p className="text-sm text-gray-300 max-w-xs">
-              г. Нижний Тагил, ул. Трикотажников, д. 7
-            </p>
+            <div className="space-y-2 text-sm text-gray-300 max-w-xs">
+              <p>
+                <span className="font-medium text-gray-100">Сервис:</span>
+                <br />г. Нижний Тагил, ул. Трикотажников, д. 7
+              </p>
+              <p>
+                <span className="font-medium text-gray-100">Запчасти:</span>
+                <br />г. Нижний Тагил, Северное шоссе, д. 15
+              </p>
+            </div>
           </div>
 
           {/* Контакты */}

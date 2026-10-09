@@ -26,33 +26,64 @@ export function MapSection() {
               </p>
             </div>
 
-            {/* Адрес */}
-            <div className="mb-3 flex gap-3">
-              <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-red-50 text-red-600 flex-shrink-0">
-                <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-                  <path
-                    d="M12 2.75a6.25 6.25 0 0 0-6.25 6.25c0 3.77 3.54 7.42 5.46 9.17.45.41 1.13.41 1.58 0 1.92-1.75 5.46-5.4 5.46-9.17A6.25 6.25 0 0 0 12 2.75Z"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                  />
-                  <circle
-                    cx="12"
-                    cy="9"
-                    r="2.2"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                  />
-                </svg>
+            {/* Адреса */}
+            <div className="mb-3 space-y-3">
+              <div className="flex gap-3">
+                <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-red-50 text-red-600 flex-shrink-0">
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+                    <path
+                      d="M12 2.75a6.25 6.25 0 0 0-6.25 6.25c0 3.77 3.54 7.42 5.46 9.17.45.41 1.13.41 1.58 0 1.92-1.75 5.46-5.4 5.46-9.17A6.25 6.25 0 0 0 12 2.75Z"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                    />
+                    <circle
+                      cx="12"
+                      cy="9"
+                      r="2.2"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">
+                    г. Нижний Тагил, ул. Трикотажников, д. 7
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    Удобный заезд и площадка для разворота грузовых автомобилей.
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-medium text-gray-900">
-                  г. Нижний Тагил, ул. Трикотажников, д. 7
-                </p>
-                <p className="text-xs text-gray-500">
-                  Удобный заезд и площадка для разворота грузовых автомобилей.
-                </p>
+
+              <div className="flex gap-3">
+                <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-red-50 text-red-600 flex-shrink-0">
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+                    <path
+                      d="M12 2.75a6.25 6.25 0 0 0-6.25 6.25c0 3.77 3.54 7.42 5.46 9.17.45.41 1.13.41 1.58 0 1.92-1.75 5.46-5.4 5.46-9.17A6.25 6.25 0 0 0 12 2.75Z"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                    />
+                    <circle
+                      cx="12"
+                      cy="9"
+                      r="2.2"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">
+                    г. Нижний Тагил, Северное шоссе, д. 15
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    Сервис грузовой техники
+                  </p>
+                </div>
               </div>
             </div>
 

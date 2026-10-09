@@ -42,18 +42,25 @@ export function ContactsPage() {
         <section className="py-16 bg-gray-50 border-b border-gray-200">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Адрес */}
+              {/* Адреса */}
               <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600 mb-4">
                   <MapPinIcon className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Адрес
+                  Адреса
                 </h3>
-                <p className="text-sm text-gray-700 mb-3">
-                  Свердловская обл., г. Нижний Тагил, ул. Трикотажников, д. 7
-                </p>
-                <p className="text-xs text-gray-500">
+                <div className="space-y-2 text-sm text-gray-700">
+                  <p>
+                    <span className="font-medium text-gray-900">ул. Трикотажников, д. 7</span>
+                    <br />Сервис грузовой техники
+                  </p>
+                  <p>
+                    <span className="font-medium text-gray-900">Северное шоссе, д. 15</span>
+                    <br />Сервис грузовой техники
+                  </p>
+                </div>
+                <p className="text-xs text-gray-500 mt-2">
                   ОГРН 1156623000753
                 </p>
               </div>

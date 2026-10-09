@@ -12,14 +12,6 @@ export default defineConfig({
   build: {
     outDir: process.env.VITE_BUILD_DIR || 'dist',
   },
-  // ← Добавляем proxy для dev
-  server: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3001',  // ваш Express backend
-        changeOrigin: true,
-        secure: false,
-      },
-    },
-  },
+  // Backend на отдельном сервере (gruzovoi-dvor.ru:3001)
+  // Proxy для dev убран — бэкенд деплоится на VPS
 })
