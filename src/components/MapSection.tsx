@@ -3,11 +3,12 @@ export function MapSection() {
     <section className="relative border-b border-gray-200 bg-gray-100">
       <div className="grid lg:grid-cols-1 lg:relative">
         {/* Карта 2ГИС — два адреса */}
-        <div className="w-full h-[300px] sm:h-[380px] lg:h-[460px]">
+        <div className="w-full h-[330px] sm:h-[420px] lg:h-[506px]">
           <iframe
+            id="map_763809122"
             width="100%"
-            height="460px"
-              src="https://makemap.2gis.ru/widget?data=eJxlzEEKgkAYBeCr_Mx6ECdz_uwGnSFciEoE5YC1EyFr0zXqBCFMRGFneHOjhly0aPfeg_c1oi5Xa1MtCjEnFUWSxMbk2d5PO78sG1Fl29In4U54BYSrO-CBJ97uiBvuGMaGXhIL_86NqYvvVYdByKziiaSYg0RNE9ZpK-lH4gKLHtaTgycsubN3O9fBSlLxP6cjNeORm7DmJG3T9gNRpk1B"
+            height="506px"
+              src="https://makemap.2gis.ru/widget?data=eJztkd9ugjAUxt-lu5SYIkotd6xGdGsIdReLW7wgUlldpaQUJxLefQW3ZXd7gfXq_Pm-055fW6B0xjXPIq5O3GjBKxC8tsA0JQcBWPLU1JoDB5RalVybod-CvZJK2_7dYQIns75vhJG9w4YZr_ZalEaowhaSVTiCD8kmj6MFpAd2NqSBFLH6acFkPMSbnHisyIgg9WMoMGGQ0k1uyAhuV8xkUWhzVsfR_TomENLz5tgsWIVtfZswg63O6gWOlrb_8eOl1_6uC6RHVmPiQvo-p144sg-8rouMX0Dgwu_TOSC_AWj69b62T5QojNXvlYUkitQMcHw4hgh5U9eZoTF2p9hHO-sXWT8QTzvnn94f9HzPnaOB3gT5CP-iN-t2DjilZaIqcSPQApkaEAxi13OA7IvDF0CbXZU6WaNnJ1hqSsrnN87ly1A1uubdJzrH4dA="
             sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"
           />
         </div>
@@ -107,11 +108,11 @@ export function MapSection() {
               </p>
             </div>
 
-            {/* Кнопки построения маршрута */}
+            {/* Кнопки открытия на карте */}
             <div className="space-y-2">
               <a
                 className="inline-flex w-full items-center justify-center rounded-md bg-[#c92424] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#b02020] transition-colors"
-                href="https://2gis.ru/directions/tab/bus/points/|60.077341,57.914967?m=60.07715284824372,57.914975992768326%2F18&routeLink=true"
+                href="https://2gis.ru/nizhniy-tagil/address/ул.%20Трикотажников/7/m60.07715284824372,57.914975992768326"
                 target="_blank"
                 rel="noopener noreferrer"
               >
